@@ -1,3 +1,6 @@
+/*!
+    @brief    Initialise TFT LCD
+*/
 void tft_init(void)
 {
   tft.begin();
@@ -5,6 +8,9 @@ void tft_init(void)
   tft.fillScreen(ILI9341_BLACK);
 }
 
+/*!
+    @brief    Draw welcome screen
+*/
 void tft_welcome(void)
 {
   tft.setCursor(100, 90);
@@ -15,11 +21,23 @@ void tft_welcome(void)
   tft.println("SCREEN");
 }
 
+/*!
+    @brief    Draw border around the screen.
+    @param    clr  Colour of the border.
+    @note     Use this to indicate current state of the system.
+              White: Normal
+              Green: Running
+              Red: Error
+*/
 void tft_draw_border(uint16_t clr)
 {
   tft.drawRect(0, 0, tft.width(), tft.height(), clr);
   tft.drawRect(1, 1, tft.width()-2, tft.height()-2, clr);
 }
+
+/*!
+    @brief    Draw screen 1
+*/
 void tft_draw_sc1(void)
 {
   tft.fillScreen(ILI9341_BLACK);
