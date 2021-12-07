@@ -31,8 +31,7 @@ void tft_welcome(void)
 */
 void tft_draw_border(uint16_t clr)
 {
-  tft.drawRect(0, 0, tft.width(), tft.height(), clr);
-  tft.drawRect(1, 1, tft.width() - 2, tft.height() - 2, clr);
+  tft_draw_thick_rect(0, 0, tft.width(), tft.height(), clr, 2);
 }
 
 /*!
@@ -50,23 +49,40 @@ void tft_draw_sc1(void)
   tft.println("SELECT CASE");
 
   // selection window
-  tft.drawRect(10, 40, 320-10-10, 145, ILI9341_WHITE);
+  tft.drawRect(10, 40, 320 - 10 - 10, 145, ILI9341_WHITE);
   tft.drawRect(270, 40, 40, 73, ILI9341_WHITE);
-  tft.drawRect(270, 40+72, 40, 73, ILI9341_WHITE);
-  tft.drawFastHLine(10, 40+48, 260, ILI9341_WHITE);
-  tft.drawFastHLine(10, 40+48+48, 260, ILI9341_WHITE);
+  tft.drawRect(270, 40 + 72, 40, 73, ILI9341_WHITE);
+  tft.drawFastHLine(10, 40 + 48, 260, ILI9341_WHITE);
+  tft.drawFastHLine(10, 40 + 48 + 48, 260, ILI9341_WHITE);
 
   // button 1
-  tft.drawRect(10, 200, 140, 30, ILI9341_WHITE);
-  tft.drawRect(11, 201, 138, 28, ILI9341_WHITE);
-  tft.setTextSize(2);
-  tft.setCursor(45, 208);
-  tft.println("SELECT");
+  tft_draw_thick_rect(TFT_SC1_BTN1_RECT_X, TFT_SC1_BTN1_RECT_Y,
+                      TFT_SC1_BTN1_RECT_XLEN, TFT_SC1_BTN1_RECT_YLEN,
+                      TFT_SC1_BTN1_RECT_CLR, TFT_SC1_BTN1_RECT_THICK);
+  tft.setTextSize(TFT_SC1_BTN1_TXT_SIZE);
+  tft.setCursor(TFT_SC1_BTN1_TXT_X, TFT_SC1_BTN1_TXT_Y);
+  tft.println(TFT_SC1_BTN1_TXT);
 
   // button 2
-  tft.drawRect(170, 200, 140, 30, ILI9341_WHITE);
-  tft.drawRect(171, 201, 138, 28, ILI9341_WHITE);
-  tft.setTextSize(2);
-  tft.setCursor(220, 208);
-  tft.println("ADD");
+  tft_draw_thick_rect(TFT_SC1_BTN2_RECT_X, TFT_SC1_BTN2_RECT_Y,
+                      TFT_SC1_BTN2_RECT_XLEN, TFT_SC1_BTN2_RECT_YLEN,
+                      TFT_SC1_BTN2_RECT_CLR, TFT_SC1_BTN2_RECT_THICK);
+  tft.setTextSize(TFT_SC1_BTN2_TXT_SIZE);
+  tft.setCursor(TFT_SC1_BTN2_TXT_X, TFT_SC1_BTN2_TXT_Y);
+  tft.println(TFT_SC1_BTN2_TXT);
+}
+
+/*!
+    @brief    Draw rectangle with thickness.
+    @param    x,y        Coordinates.
+    @param    w,h        Height and width.
+    @param    color      Color of rectangle.
+    @param    thickness  Thickness of rectangle.
+*/
+void tft_draw_thick_rect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color, int8_t thickness)
+{
+  for (int8_t i = 0; i < thickness; i++)
+  {
+    tft.drawRect(x + i, y + i, w - (2 * i), h - (2 * i), color);
+  }
 }
