@@ -1,5 +1,8 @@
 #include "Adafruit_GFX.h"
 #include "Adafruit_ILI9341.h"
+#include <Fonts/FreeSerifBold12pt7b.h>
+#include <Fonts/FreeSerifBold18pt7b.h>
+
 
 #include "PIN.h"
 #include "screen.h"
