@@ -39,15 +39,18 @@ void tft_draw_border(uint16_t clr)
 */
 void tft_draw_sc1(void)
 {
+  // Erase previous screen
   tft.fillScreen(ILI9341_BLACK);
 
+  // Draw border of screen white
   tft_draw_border(ILI9341_WHITE);
 
   // title
-  tft.setFont(&FreeSerifBold18pt7b);
-  tft.setTextSize(1);
-  tft.setCursor(10, 30);
-  tft.println("SELECT CASE");
+  tft.setFont(&TFT_SC1_TITLE_TXT_FONT);
+  tft.setTextSize(TFT_SC1_TITLE_TXT_SIZE);
+  tft.setTextColor(TFT_SC1_TITLE_TXT_CLR);
+  tft.setCursor(TFT_SC1_TITLE_TXT_X, TFT_SC1_TITLE_TXT_Y);
+  tft.println(TFT_SC1_TITLE_TXT);
 
   // selection window
   tft.drawRect(10, 40, 320 - 10 - 10, 145, ILI9341_WHITE);
@@ -55,6 +58,8 @@ void tft_draw_sc1(void)
   tft.drawRect(270, 40 + 72, 40, 73, ILI9341_WHITE);
   tft.drawFastHLine(10, 40 + 48, 260, ILI9341_WHITE);
   tft.drawFastHLine(10, 40 + 48 + 48, 260, ILI9341_WHITE);
+  tft.fillTriangle(290, 70, 280, 85, 300, 85, ILI9341_WHITE);
+  tft.fillTriangle(290, 156, 280, 141, 300, 141, ILI9341_WHITE);
 
   // button 1
   tft_draw_thick_rect(TFT_SC1_BTN1_RECT_X, TFT_SC1_BTN1_RECT_Y,
@@ -62,6 +67,7 @@ void tft_draw_sc1(void)
                       TFT_SC1_BTN1_RECT_CLR, TFT_SC1_BTN1_RECT_THICK);
   tft.setFont(&TFT_SC1_BTN1_TXT_FONT);
   tft.setTextSize(TFT_SC1_BTN1_TXT_SIZE);
+  tft.setTextColor(TFT_SC1_BTN1_TXT_CLR);
   tft.setCursor(TFT_SC1_BTN1_TXT_X, TFT_SC1_BTN1_TXT_Y);
   tft.println(TFT_SC1_BTN1_TXT);
 
@@ -71,6 +77,7 @@ void tft_draw_sc1(void)
                       TFT_SC1_BTN2_RECT_CLR, TFT_SC1_BTN2_RECT_THICK);
   tft.setFont(&TFT_SC1_BTN2_TXT_FONT);
   tft.setTextSize(TFT_SC1_BTN2_TXT_SIZE);
+  tft.setTextColor(TFT_SC1_BTN2_TXT_CLR);
   tft.setCursor(TFT_SC1_BTN2_TXT_X, TFT_SC1_BTN2_TXT_Y);
   tft.println(TFT_SC1_BTN2_TXT);
 }

@@ -5,6 +5,14 @@
  *                         Screen 1                         *
 \************************************************************/
 
+// Title
+#define TFT_SC1_TITLE_TXT         "SELECT CASE"
+#define TFT_SC1_TITLE_TXT_CLR     ILI9341_WHITE
+#define TFT_SC1_TITLE_TXT_FONT    FreeSerifBold18pt7b
+#define TFT_SC1_TITLE_TXT_SIZE    1
+#define TFT_SC1_TITLE_TXT_X       10
+#define TFT_SC1_TITLE_TXT_Y       30
+
 // Button 1
 #define TFT_SC1_BTN1_TXT        "SELECT"
 #define TFT_SC1_BTN1_TXT_CLR    ILI9341_WHITE
