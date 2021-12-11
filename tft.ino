@@ -198,3 +198,30 @@ void tft_draw_thick_rect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t co
     tft.drawRect(x + i, y + i, w - (2 * i), h - (2 * i), color);
   }
 }
+
+/*!
+ *  @brief    Initialize the SCREEN_TEXT_Params to its defaults.
+ *  @param    params  Pointer to a parameter block..
+ */
+void tft_screen_text_params_init(SCREEN_TEXT_Params *params)
+{
+  params->x      = 0;
+  params->y      = 0;
+  params->text   = "";
+  params->color  = ILI9341_WHITE;
+  params->font   = NULL;
+  params->size   = 1;
+}
+
+/*!
+ *  @brief    Draw text on the screen.
+ *  @param    params  Parameter structure.
+ */
+void tft_draw_text(SCREEN_TEXT_Params params)
+{
+  tft.setFont(params.font);
+  tft.setTextSize(params.size);
+  tft.setTextColor(params.color);
+  tft.setCursor(params.x, params.y);
+  tft.println(params.text);
+}
