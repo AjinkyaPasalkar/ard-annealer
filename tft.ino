@@ -22,19 +22,6 @@ void tft_welcome(void)
 }
 
 /*!
-    @brief    Draw border around the screen.
-    @param    clr  Colour of the border.
-    @note     Use this to indicate current state of the system.
-              White: Normal
-              Green: Running
-              Red: Error
-*/
-void tft_draw_border(uint16_t clr)
-{
-  tft_draw_thick_rect(0, 0, tft.width(), tft.height(), clr, 2);
-}
-
-/*!
     @brief    Draw screen 1
 */
 void tft_draw_sc1(void)
@@ -80,6 +67,19 @@ void tft_draw_sc1(void)
   tft.setTextColor(TFT_SC1_BTN2_TXT_CLR);
   tft.setCursor(TFT_SC1_BTN2_TXT_X, TFT_SC1_BTN2_TXT_Y);
   tft.println(TFT_SC1_BTN2_TXT);
+}
+
+/*!
+    @brief    Draw border around the screen.
+    @param    clr  Colour of the border.
+    @note     Use this to indicate current state of the system.
+              White: Normal
+              Green: Running
+              Red: Error
+*/
+void tft_draw_border(uint16_t clr)
+{
+  tft_draw_thick_rect(0, 0, tft.width(), tft.height(), clr, 2);
 }
 
 /*!
