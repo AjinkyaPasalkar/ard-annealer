@@ -69,6 +69,108 @@ void tft_draw_sc1(void)
   tft.println(TFT_SC1_BTN2_TXT);
 }
 
+void tft_draw_sc2(void)
+{
+  // Erase previous screen
+  tft.fillScreen(ILI9341_BLACK);
+
+  // Draw border of screen white
+  tft_draw_border(ILI9341_WHITE);
+
+  // title
+  tft.setFont(&TFT_SC2_TITLE_TXT_FONT);
+  tft.setTextSize(TFT_SC2_TITLE_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_TITLE_TXT_CLR);
+  tft.setCursor(TFT_SC2_TITLE_TXT_X, TFT_SC2_TITLE_TXT_Y);
+  tft.println(TFT_SC2_TITLE_TXT);
+
+  // Text 1
+  tft.setFont(&TFT_SC2_TXT1_TXT_FONT);
+  tft.setTextSize(TFT_SC2_TXT1_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_TXT1_TXT_CLR);
+  tft.setCursor(TFT_SC2_TXT1_TXT_X, TFT_SC2_TXT1_TXT_Y);
+  tft.println(TFT_SC2_TXT1_TXT);
+
+  tft.drawFastHLine(2, 78, 316, ILI9341_WHITE);
+
+  // Text 2
+  tft.setFont(&TFT_SC2_TXT2_TXT_FONT);
+  tft.setTextSize(TFT_SC2_TXT2_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_TXT2_TXT_CLR);
+  tft.setCursor(TFT_SC2_TXT2_TXT_X, TFT_SC2_TXT2_TXT_Y);
+  tft.println(TFT_SC2_TXT2_TXT);
+
+  // button 1
+  tft_draw_thick_rect(TFT_SC2_BTN1_RECT_X, TFT_SC2_BTN1_RECT_Y,
+                      TFT_SC2_BTN1_RECT_XLEN, TFT_SC2_BTN1_RECT_YLEN,
+                      TFT_SC2_BTN1_RECT_CLR, TFT_SC2_BTN1_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN1_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN1_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN1_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN1_TXT_X, TFT_SC2_BTN1_TXT_Y);
+  tft.println(TFT_SC2_BTN1_TXT);
+
+  // button 2
+  tft_draw_thick_rect(TFT_SC2_BTN2_RECT_X, TFT_SC2_BTN2_RECT_Y,
+                      TFT_SC2_BTN2_RECT_XLEN, TFT_SC2_BTN2_RECT_YLEN,
+                      TFT_SC2_BTN2_RECT_CLR, TFT_SC2_BTN2_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN2_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN2_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN2_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN2_TXT_X, TFT_SC2_BTN2_TXT_Y);
+  tft.println(TFT_SC2_BTN2_TXT);
+
+  // button 3
+  tft_draw_thick_rect(TFT_SC2_BTN3_RECT_X, TFT_SC2_BTN3_RECT_Y,
+                      TFT_SC2_BTN3_RECT_XLEN, TFT_SC2_BTN3_RECT_YLEN,
+                      TFT_SC2_BTN3_RECT_CLR, TFT_SC2_BTN3_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN3_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN3_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN3_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN3_TXT_X, TFT_SC2_BTN3_TXT_Y);
+  tft.println(TFT_SC2_BTN3_TXT);
+
+  // button 4
+  tft_draw_thick_rect(TFT_SC2_BTN4_RECT_X, TFT_SC2_BTN4_RECT_Y,
+                      TFT_SC2_BTN4_RECT_XLEN, TFT_SC2_BTN4_RECT_YLEN,
+                      TFT_SC2_BTN4_RECT_CLR, TFT_SC2_BTN4_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN4_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN4_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN4_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN4_TXT_X, TFT_SC2_BTN4_TXT_Y);
+  tft.println(TFT_SC2_BTN4_TXT);
+
+  // button 5
+  tft_draw_thick_rect(TFT_SC2_BTN5_RECT_X, TFT_SC2_BTN5_RECT_Y,
+                      TFT_SC2_BTN5_RECT_XLEN, TFT_SC2_BTN5_RECT_YLEN,
+                      TFT_SC2_BTN5_RECT_CLR, TFT_SC2_BTN5_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN5_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN5_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN5_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN5_TXT_X, TFT_SC2_BTN5_TXT_Y);
+  tft.println(TFT_SC2_BTN5_TXT);
+
+  // button 6
+  tft_draw_thick_rect(TFT_SC2_BTN6_RECT_X, TFT_SC2_BTN6_RECT_Y,
+                      TFT_SC2_BTN6_RECT_XLEN, TFT_SC2_BTN6_RECT_YLEN,
+                      TFT_SC2_BTN6_RECT_CLR, TFT_SC2_BTN6_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN6_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN6_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN6_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN6_TXT_X, TFT_SC2_BTN6_TXT_Y);
+  tft.println(TFT_SC2_BTN6_TXT);
+
+  // button 7
+  tft_draw_thick_rect(TFT_SC2_BTN7_RECT_X, TFT_SC2_BTN7_RECT_Y,
+                      TFT_SC2_BTN7_RECT_XLEN, TFT_SC2_BTN7_RECT_YLEN,
+                      TFT_SC2_BTN7_RECT_CLR, TFT_SC2_BTN7_RECT_THICK);
+  tft.setFont(&TFT_SC2_BTN7_TXT_FONT);
+  tft.setTextSize(TFT_SC2_BTN7_TXT_SIZE);
+  tft.setTextColor(TFT_SC2_BTN7_TXT_CLR);
+  tft.setCursor(TFT_SC2_BTN7_TXT_X, TFT_SC2_BTN7_TXT_Y);
+  tft.println(TFT_SC2_BTN7_TXT);
+}
+
 /*!
     @brief    Draw border around the screen.
     @param    clr  Colour of the border.
