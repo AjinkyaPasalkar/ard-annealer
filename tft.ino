@@ -26,6 +26,8 @@ void tft_welcome(void)
 */
 void tft_draw_sc1(void)
 {
+  SCREEN_TEXT_Params textParams;
+  
   // Erase previous screen
   tft.fillScreen(ILI9341_BLACK);
 
@@ -33,11 +35,13 @@ void tft_draw_sc1(void)
   tft_draw_border(ILI9341_WHITE);
 
   // title
-  tft.setFont(&TFT_SC1_TITLE_TXT_FONT);
-  tft.setTextSize(TFT_SC1_TITLE_TXT_SIZE);
-  tft.setTextColor(TFT_SC1_TITLE_TXT_CLR);
-  tft.setCursor(TFT_SC1_TITLE_TXT_X, TFT_SC1_TITLE_TXT_Y);
-  tft.println(TFT_SC1_TITLE_TXT);
+  tft_screen_text_params_init(&textParams);
+  textParams.x      = TFT_SC1_TITLE_TXT_X;
+  textParams.y      = TFT_SC1_TITLE_TXT_Y;
+  textParams.text   = TFT_SC1_TITLE_TXT;
+  textParams.color  = TFT_SC1_TITLE_TXT_CLR;
+  textParams.font   = &TFT_SC1_TITLE_TXT_FONT;
+  tft_draw_text(textParams);
 
   // selection window
   tft.drawRect(10, 40, 320 - 10 - 10, 145, ILI9341_WHITE);
@@ -71,6 +75,8 @@ void tft_draw_sc1(void)
 
 void tft_draw_sc2(void)
 {
+  SCREEN_TEXT_Params textParams;
+  
   // Erase previous screen
   tft.fillScreen(ILI9341_BLACK);
 
@@ -78,27 +84,33 @@ void tft_draw_sc2(void)
   tft_draw_border(ILI9341_WHITE);
 
   // title
-  tft.setFont(&TFT_SC2_TITLE_TXT_FONT);
-  tft.setTextSize(TFT_SC2_TITLE_TXT_SIZE);
-  tft.setTextColor(TFT_SC2_TITLE_TXT_CLR);
-  tft.setCursor(TFT_SC2_TITLE_TXT_X, TFT_SC2_TITLE_TXT_Y);
-  tft.println(TFT_SC2_TITLE_TXT);
+  tft_screen_text_params_init(&textParams);
+  textParams.x       = TFT_SC2_TITLE_TXT_X;
+  textParams.y       = TFT_SC2_TITLE_TXT_Y;
+  textParams.text    = TFT_SC2_TITLE_TXT;
+  textParams.color   = TFT_SC2_TITLE_TXT_CLR;
+  textParams.font    = &TFT_SC2_TITLE_TXT_FONT;
+  tft_draw_text(textParams);
 
   // Text 1
-  tft.setFont(&TFT_SC2_TXT1_TXT_FONT);
-  tft.setTextSize(TFT_SC2_TXT1_TXT_SIZE);
-  tft.setTextColor(TFT_SC2_TXT1_TXT_CLR);
-  tft.setCursor(TFT_SC2_TXT1_TXT_X, TFT_SC2_TXT1_TXT_Y);
-  tft.println(TFT_SC2_TXT1_TXT);
+  tft_screen_text_params_init(&textParams);
+  textParams.x       = TFT_SC2_TXT1_TXT_X;
+  textParams.y       = TFT_SC2_TXT1_TXT_Y;
+  textParams.text    = TFT_SC2_TXT1_TXT;
+  textParams.color   = TFT_SC2_TXT1_TXT_CLR;
+  textParams.font    = &TFT_SC2_TXT1_TXT_FONT;
+  tft_draw_text(textParams);
 
   tft.drawFastHLine(2, 78, 316, ILI9341_WHITE);
 
   // Text 2
-  tft.setFont(&TFT_SC2_TXT2_TXT_FONT);
-  tft.setTextSize(TFT_SC2_TXT2_TXT_SIZE);
-  tft.setTextColor(TFT_SC2_TXT2_TXT_CLR);
-  tft.setCursor(TFT_SC2_TXT2_TXT_X, TFT_SC2_TXT2_TXT_Y);
-  tft.println(TFT_SC2_TXT2_TXT);
+  tft_screen_text_params_init(&textParams);
+  textParams.x       = TFT_SC2_TXT2_TXT_X;
+  textParams.y       = TFT_SC2_TXT2_TXT_Y;
+  textParams.text    = TFT_SC2_TXT2_TXT;
+  textParams.color   = TFT_SC2_TXT2_TXT_CLR;
+  textParams.font    = &TFT_SC2_TXT2_TXT_FONT;
+  tft_draw_text(textParams);
 
   // button 1
   tft_draw_thick_rect(TFT_SC2_BTN1_RECT_X, TFT_SC2_BTN1_RECT_Y,
