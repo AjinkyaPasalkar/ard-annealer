@@ -184,6 +184,83 @@ void tft_draw_sc2(void)
 }
 
 /*!
+    @brief    Draw screen 3
+*/
+void tft_draw_sc3(void)
+{
+  SCREEN_TEXT_Params textParams;
+
+  // Erase previous screen
+  tft.fillScreen(ILI9341_BLACK);
+
+  // Draw border of screen white
+  tft_draw_border(ILI9341_WHITE);
+
+  tft.drawPixel(160, 160, ILI9341_RED);
+  tft.drawPixel(159, 160, ILI9341_RED);
+
+  // Text 1
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC3_TXT1_TXT_X;
+  textParams.text_y       = TFT_SC3_TXT1_TXT_Y;
+  textParams.text         = TFT_SC3_TXT1_TXT;
+  textParams.text_color   = TFT_SC3_TXT1_TXT_CLR;
+  textParams.text_font    = &TFT_SC3_TXT1_TXT_FONT;
+  tft_draw_text(textParams);
+
+
+  // button 1
+  tft_draw_thick_rect(TFT_SC3_BTN1_RECT_X, TFT_SC3_BTN1_RECT_Y,
+                      TFT_SC3_BTN1_RECT_XLEN, TFT_SC3_BTN1_RECT_YLEN,
+                      TFT_SC3_BTN1_RECT_CLR, TFT_SC3_BTN1_RECT_THICK);
+  tft.setFont(&TFT_SC3_BTN1_TXT_FONT);
+  tft.setTextSize(TFT_SC3_BTN1_TXT_SIZE);
+  tft.setTextColor(TFT_SC3_BTN1_TXT_CLR);
+  tft.setCursor(TFT_SC3_BTN1_TXT_X, TFT_SC3_BTN1_TXT_Y);
+  tft.println(TFT_SC3_BTN1_TXT);
+
+  // button 2
+  tft_draw_thick_rect(TFT_SC3_BTN2_RECT_X, TFT_SC3_BTN2_RECT_Y,
+                      TFT_SC3_BTN2_RECT_XLEN, TFT_SC3_BTN2_RECT_YLEN,
+                      TFT_SC3_BTN2_RECT_CLR, TFT_SC3_BTN2_RECT_THICK);
+  tft.setFont(&TFT_SC3_BTN2_TXT_FONT);
+  tft.setTextSize(TFT_SC3_BTN2_TXT_SIZE);
+  tft.setTextColor(TFT_SC3_BTN2_TXT_CLR);
+  tft.setCursor(TFT_SC3_BTN2_TXT_X, TFT_SC3_BTN2_TXT_Y);
+  tft.println(TFT_SC3_BTN2_TXT);
+
+  // button 3
+  tft_draw_thick_rect(TFT_SC3_BTN3_RECT_X, TFT_SC3_BTN3_RECT_Y,
+                      TFT_SC3_BTN3_RECT_XLEN, TFT_SC3_BTN3_RECT_YLEN,
+                      TFT_SC3_BTN3_RECT_CLR, TFT_SC3_BTN3_RECT_THICK);
+  tft.setFont(&TFT_SC3_BTN3_TXT_FONT);
+  tft.setTextSize(TFT_SC3_BTN3_TXT_SIZE);
+  tft.setTextColor(TFT_SC3_BTN3_TXT_CLR);
+  tft.setCursor(TFT_SC3_BTN3_TXT_X, TFT_SC3_BTN3_TXT_Y);
+  tft.println(TFT_SC3_BTN3_TXT);
+
+  // button 4
+  tft_draw_thick_rect(TFT_SC3_BTN4_RECT_X, TFT_SC3_BTN4_RECT_Y,
+                      TFT_SC3_BTN4_RECT_XLEN, TFT_SC3_BTN4_RECT_YLEN,
+                      TFT_SC3_BTN4_RECT_CLR, TFT_SC3_BTN4_RECT_THICK);
+  tft.setFont(&TFT_SC3_BTN4_TXT_FONT);
+  tft.setTextSize(TFT_SC3_BTN4_TXT_SIZE);
+  tft.setTextColor(TFT_SC3_BTN4_TXT_CLR);
+  tft.setCursor(TFT_SC3_BTN4_TXT_X, TFT_SC3_BTN4_TXT_Y);
+  tft.println(TFT_SC3_BTN4_TXT);
+
+  // button 5
+  tft_draw_thick_rect(TFT_SC3_BTN5_RECT_X, TFT_SC3_BTN5_RECT_Y,
+                      TFT_SC3_BTN5_RECT_XLEN, TFT_SC3_BTN5_RECT_YLEN,
+                      TFT_SC3_BTN5_RECT_CLR, TFT_SC3_BTN5_RECT_THICK);
+  tft.setFont(&TFT_SC3_BTN5_TXT_FONT);
+  tft.setTextSize(TFT_SC3_BTN5_TXT_SIZE);
+  tft.setTextColor(TFT_SC3_BTN5_TXT_CLR);
+  tft.setCursor(TFT_SC3_BTN5_TXT_X, TFT_SC3_BTN5_TXT_Y);
+  tft.println(TFT_SC3_BTN5_TXT);
+}
+
+/*!
     @brief    Draw border around the screen.
     @param    clr  Colour of the border.
     @note     Use this to indicate current state of the system.
