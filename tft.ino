@@ -27,7 +27,7 @@ void tft_welcome(void)
 void tft_draw_sc1(void)
 {
   SCREEN_TEXT_Params textParams;
-  
+
   // Erase previous screen
   tft.fillScreen(ILI9341_BLACK);
 
@@ -36,11 +36,11 @@ void tft_draw_sc1(void)
 
   // title
   tft_screen_text_params_init(&textParams);
-  textParams.x      = TFT_SC1_TITLE_TXT_X;
-  textParams.y      = TFT_SC1_TITLE_TXT_Y;
-  textParams.text   = TFT_SC1_TITLE_TXT;
-  textParams.color  = TFT_SC1_TITLE_TXT_CLR;
-  textParams.font   = &TFT_SC1_TITLE_TXT_FONT;
+  textParams.text_x       = TFT_SC1_TITLE_TXT_X;
+  textParams.text_y       = TFT_SC1_TITLE_TXT_Y;
+  textParams.text         = TFT_SC1_TITLE_TXT;
+  textParams.text_color   = TFT_SC1_TITLE_TXT_CLR;
+  textParams.text_font    = &TFT_SC1_TITLE_TXT_FONT;
   tft_draw_text(textParams);
 
   // selection window
@@ -76,7 +76,7 @@ void tft_draw_sc1(void)
 void tft_draw_sc2(void)
 {
   SCREEN_TEXT_Params textParams;
-  
+
   // Erase previous screen
   tft.fillScreen(ILI9341_BLACK);
 
@@ -85,31 +85,31 @@ void tft_draw_sc2(void)
 
   // title
   tft_screen_text_params_init(&textParams);
-  textParams.x       = TFT_SC2_TITLE_TXT_X;
-  textParams.y       = TFT_SC2_TITLE_TXT_Y;
-  textParams.text    = TFT_SC2_TITLE_TXT;
-  textParams.color   = TFT_SC2_TITLE_TXT_CLR;
-  textParams.font    = &TFT_SC2_TITLE_TXT_FONT;
+  textParams.text_x       = TFT_SC2_TITLE_TXT_X;
+  textParams.text_y       = TFT_SC2_TITLE_TXT_Y;
+  textParams.text         = TFT_SC2_TITLE_TXT;
+  textParams.text_color   = TFT_SC2_TITLE_TXT_CLR;
+  textParams.text_font    = &TFT_SC2_TITLE_TXT_FONT;
   tft_draw_text(textParams);
 
   // Text 1
   tft_screen_text_params_init(&textParams);
-  textParams.x       = TFT_SC2_TXT1_TXT_X;
-  textParams.y       = TFT_SC2_TXT1_TXT_Y;
-  textParams.text    = TFT_SC2_TXT1_TXT;
-  textParams.color   = TFT_SC2_TXT1_TXT_CLR;
-  textParams.font    = &TFT_SC2_TXT1_TXT_FONT;
+  textParams.text_x       = TFT_SC2_TXT1_TXT_X;
+  textParams.text_y       = TFT_SC2_TXT1_TXT_Y;
+  textParams.text         = TFT_SC2_TXT1_TXT;
+  textParams.text_color   = TFT_SC2_TXT1_TXT_CLR;
+  textParams.text_font    = &TFT_SC2_TXT1_TXT_FONT;
   tft_draw_text(textParams);
 
   tft.drawFastHLine(2, 78, 316, ILI9341_WHITE);
 
   // Text 2
   tft_screen_text_params_init(&textParams);
-  textParams.x       = TFT_SC2_TXT2_TXT_X;
-  textParams.y       = TFT_SC2_TXT2_TXT_Y;
-  textParams.text    = TFT_SC2_TXT2_TXT;
-  textParams.color   = TFT_SC2_TXT2_TXT_CLR;
-  textParams.font    = &TFT_SC2_TXT2_TXT_FONT;
+  textParams.text_x       = TFT_SC2_TXT2_TXT_X;
+  textParams.text_y       = TFT_SC2_TXT2_TXT_Y;
+  textParams.text         = TFT_SC2_TXT2_TXT;
+  textParams.text_color   = TFT_SC2_TXT2_TXT_CLR;
+  textParams.text_font    = &TFT_SC2_TXT2_TXT_FONT;
   tft_draw_text(textParams);
 
   // button 1
@@ -212,28 +212,39 @@ void tft_draw_thick_rect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t co
 }
 
 /*!
- *  @brief    Initialize the SCREEN_TEXT_Params to its defaults.
- *  @param    params  Pointer to a parameter block..
- */
+    @brief    Initialize the SCREEN_TEXT_Params to its defaults.
+    @param    params  Pointer to a parameter block..
+*/
 void tft_screen_text_params_init(SCREEN_TEXT_Params *params)
 {
-  params->x      = 0;
-  params->y      = 0;
-  params->text   = "";
-  params->color  = ILI9341_WHITE;
-  params->font   = NULL;
-  params->size   = 1;
+  params->text_x            = 0;
+  params->text_y            = 0;
+  params->text              = "";
+  params->text_font         = NULL;
+  params->text_size         = 1;
+
+  params->rect_thickness    = 0;
+  params->rect_x            = 0;
+  params->rect_y            = 0;
+  params->rect_x_len        = 0;
+  params->rect_y_len        = 0;
+
+  params->fill_en           = false;
+
+  params->text_color        = ILI9341_WHITE;
+  params->rect_color        = ILI9341_WHITE;
+  params->fill_color        = ILI9341_BLACK;
 }
 
 /*!
- *  @brief    Draw text on the screen.
- *  @param    params  Parameter structure.
- */
+    @brief    Draw text on the screen.
+    @param    params  Parameter structure.
+*/
 void tft_draw_text(SCREEN_TEXT_Params params)
 {
-  tft.setFont(params.font);
-  tft.setTextSize(params.size);
-  tft.setTextColor(params.color);
-  tft.setCursor(params.x, params.y);
+  tft.setFont(params.text_font);
+  tft.setTextSize(params.text_size);
+  tft.setTextColor(params.text_color);
+  tft.setCursor(params.text_x, params.text_y);
   tft.println(params.text);
 }
