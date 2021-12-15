@@ -6,12 +6,20 @@
 \************************************************************/
 
 // Text 1
-#define TFT_SC3_TXT1_TXT        "00.0"
+#define TFT_SC3_TXT1_TXT        "00"
 #define TFT_SC3_TXT1_TXT_CLR    ILI9341_WHITE
 #define TFT_SC3_TXT1_TXT_FONT   FreeSerifBold18pt7b
 #define TFT_SC3_TXT1_TXT_SIZE   1
-#define TFT_SC3_TXT1_TXT_X      123
-#define TFT_SC3_TXT1_TXT_Y      150
+#define TFT_SC3_TXT1_TXT_X      68
+#define TFT_SC3_TXT1_TXT_Y      134
+
+// Text 2
+#define TFT_SC3_TXT2_TXT        "0"
+#define TFT_SC3_TXT2_TXT_CLR    ILI9341_WHITE
+#define TFT_SC3_TXT2_TXT_FONT   FreeSerifBold18pt7b
+#define TFT_SC3_TXT2_TXT_SIZE   1
+#define TFT_SC3_TXT2_TXT_X      147
+#define TFT_SC3_TXT2_TXT_Y      134
 
 // Button 1
 #define TFT_SC3_BTN1_TXT        "ADD"

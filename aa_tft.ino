@@ -268,6 +268,15 @@ void tft_draw_sc3(void)
   textParams.text_font    = &TFT_SC3_TXT1_TXT_FONT;
   tft_draw_text(textParams);
 
+  // Text 2
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC3_TXT2_TXT_X;
+  textParams.text_y       = TFT_SC3_TXT2_TXT_Y;
+  textParams.text         = TFT_SC3_TXT2_TXT;
+  textParams.text_color   = TFT_SC3_TXT2_TXT_CLR;
+  textParams.text_font    = &TFT_SC3_TXT2_TXT_FONT;
+  tft_draw_text(textParams);
+
   // button 1
   tft_screen_text_params_init(&textParams);
   textParams.text_x           = TFT_SC3_BTN1_TXT_X;
@@ -352,4 +361,10 @@ void tft_draw_sc3(void)
   textParams.text_color       = TFT_SC3_BTN5_TXT_CLR;
   textParams.rect_color       = TFT_SC3_BTN5_RECT_CLR;
   tft_draw_text(textParams);
+
+  // up down buttons
+  tft.fillTriangle(85, 78, 75, 93, 95, 93, ILI9341_WHITE);
+  tft.fillTriangle(85, 164, 75, 149, 95, 149, ILI9341_WHITE);
+  tft.fillTriangle(155, 78, 145, 93, 165, 93, ILI9341_WHITE);
+  tft.fillTriangle(155, 164, 145, 149, 165, 149, ILI9341_WHITE);
 }
