@@ -368,3 +368,119 @@ void tft_draw_sc3(void)
   tft.fillTriangle(155, 78, 145, 93, 165, 93, ILI9341_WHITE);
   tft.fillTriangle(155, 164, 145, 149, 165, 149, ILI9341_WHITE);
 }
+
+/*!
+    @brief    Draw screen 4
+*/
+void tft_draw_sc4(void)
+{
+  SCREEN_TEXT_Params textParams;
+
+  // Erase previous screen
+  tft.fillScreen(ILI9341_BLACK);
+
+  // Draw border of screen white
+  tft_draw_border(ILI9341_WHITE);
+
+  // title
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC4_TITLE_TXT_X;
+  textParams.text_y       = TFT_SC4_TITLE_TXT_Y;
+  textParams.text         = TFT_SC4_TITLE_TXT;
+  textParams.text_color   = TFT_SC4_TITLE_TXT_CLR;
+  textParams.text_font    = &TFT_SC4_TITLE_TXT_FONT;
+  tft_draw_text(textParams);
+
+  // Text 1
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC4_TXT1_TXT_X;
+  textParams.text_y       = TFT_SC4_TXT1_TXT_Y;
+  textParams.text         = TFT_SC4_TXT1_TXT;
+  textParams.text_color   = TFT_SC4_TXT1_TXT_CLR;
+  textParams.text_font    = &TFT_SC4_TXT1_TXT_FONT;
+  tft_draw_text(textParams);
+
+  // Text 2
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC4_TXT2_TXT_X;
+  textParams.text_y       = TFT_SC4_TXT2_TXT_Y;
+  textParams.text         = TFT_SC4_TXT2_TXT;
+  textParams.text_color   = TFT_SC4_TXT2_TXT_CLR;
+  textParams.text_font    = &TFT_SC4_TXT2_TXT_FONT;
+  tft_draw_text(textParams);
+
+  // button 1
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x           = TFT_SC4_BTN1_TXT_X;
+  textParams.text_y           = TFT_SC4_BTN1_TXT_Y;
+  textParams.text             = TFT_SC4_BTN1_TXT;
+  textParams.text_font        = &TFT_SC4_BTN1_TXT_FONT;
+
+  textParams.rect_x           = TFT_SC4_BTN1_RECT_X;
+  textParams.rect_y           = TFT_SC4_BTN1_RECT_Y;
+  textParams.rect_x_len       = TFT_SC4_BTN1_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC4_BTN1_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC4_BTN1_RECT_THICK;
+
+  textParams.text_color       = TFT_SC4_BTN1_TXT_CLR;
+  textParams.rect_color       = TFT_SC4_BTN1_RECT_CLR;
+  tft_draw_text(textParams);;
+
+  // button 2
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x           = TFT_SC4_BTN2_TXT_X;
+  textParams.text_y           = TFT_SC4_BTN2_TXT_Y;
+  textParams.text             = TFT_SC4_BTN2_TXT;
+  textParams.text_font        = &TFT_SC4_BTN2_TXT_FONT;
+
+  textParams.rect_x           = TFT_SC4_BTN2_RECT_X;
+  textParams.rect_y           = TFT_SC4_BTN2_RECT_Y;
+  textParams.rect_x_len       = TFT_SC4_BTN2_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC4_BTN2_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC4_BTN2_RECT_THICK;
+
+  textParams.text_color       = TFT_SC4_BTN2_TXT_CLR;
+  textParams.rect_color       = TFT_SC4_BTN2_RECT_CLR;
+  tft_draw_text(textParams);
+
+  // button 4
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x           = TFT_SC4_BTN4_TXT_X;
+  textParams.text_y           = TFT_SC4_BTN4_TXT_Y;
+  textParams.text             = TFT_SC4_BTN4_TXT;
+  textParams.text_font        = &TFT_SC4_BTN4_TXT_FONT;
+
+  textParams.rect_x           = TFT_SC4_BTN4_RECT_X;
+  textParams.rect_y           = TFT_SC4_BTN4_RECT_Y;
+  textParams.rect_x_len       = TFT_SC4_BTN4_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC4_BTN4_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC4_BTN4_RECT_THICK;
+
+  textParams.text_color       = TFT_SC4_BTN4_TXT_CLR;
+  textParams.rect_color       = TFT_SC4_BTN4_RECT_CLR;
+  tft_draw_text(textParams);
+
+  // button 5
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x           = TFT_SC4_BTN5_TXT_X;
+  textParams.text_y           = TFT_SC4_BTN5_TXT_Y;
+  textParams.text             = TFT_SC4_BTN5_TXT;
+  textParams.text_font        = &TFT_SC4_BTN5_TXT_FONT;
+
+  textParams.rect_x           = TFT_SC4_BTN5_RECT_X;
+  textParams.rect_y           = TFT_SC4_BTN5_RECT_Y;
+  textParams.rect_x_len       = TFT_SC4_BTN5_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC4_BTN5_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC4_BTN5_RECT_THICK;
+
+  textParams.text_color       = TFT_SC4_BTN5_TXT_CLR;
+  textParams.rect_color       = TFT_SC4_BTN5_RECT_CLR;
+  tft_draw_text(textParams);
+
+  // up down buttons
+  tft.fillTriangle(45, 78, 35, 93, 55, 93, ILI9341_WHITE);
+  tft.fillTriangle(45, 164, 35, 149, 55, 149, ILI9341_WHITE);
+  tft.fillTriangle(115, 78, 105, 93, 125, 93, ILI9341_WHITE);
+  tft.fillTriangle(115, 164, 105, 149, 125, 149, ILI9341_WHITE);
+
+}
