@@ -484,3 +484,125 @@ void tft_draw_sc4(void)
   tft.fillTriangle(115, 164, 105, 149, 125, 149, ILI9341_WHITE);
 
 }
+
+/*!
+    @brief    Draw screen keyboard
+*/
+void tft_draw_sckey(void)
+{
+  SCREEN_TEXT_Params textParams;
+
+  // Erase previous screen
+  tft.fillScreen(ILI9341_BLACK);
+
+  // Draw border of screen white
+  tft_draw_border(ILI9341_WHITE);
+
+  for (int row = 0; row < TFT_SCKEY_BTN_ROWS; row++)
+  {
+    for (int col = 0; col < TFT_SCKEY_BTN_COLUMNS; col++)
+    {
+      tft_screen_text_params_init(&textParams);
+
+      textParams.rect_x           = TFT_SCKEY_BTN_RECT_X + (col * TFT_SCKEY_BTN_GAP_X);
+      textParams.rect_y           = TFT_SCKEY_BTN_RECT_Y + (row * TFT_SCKEY_BTN_GAP_Y);
+      textParams.rect_x_len       = TFT_SCKEY_BTN1_RECT_XLEN;
+      textParams.rect_y_len       = TFT_SCKEY_BTN1_RECT_YLEN;
+      textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
+      textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+
+      textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
+      textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
+
+      tft_draw_text(textParams);
+    }
+  }
+
+  // Button 5 Space bar
+  tft_screen_text_params_init(&textParams);
+
+  textParams.text_x           = TFT_SCKEY_BTN5_TXT_X;
+  textParams.text_y           = TFT_SCKEY_BTN5_TXT_Y;
+  textParams.text             = TFT_SCKEY_BTN5_TXT;
+  textParams.text_font        = &TFT_SCKEY_BTN_TXT_FONT;
+
+  textParams.rect_x           = TFT_SCKEY_BTN_RECT_X + (1 * TFT_SCKEY_BTN_GAP_X);
+  textParams.rect_y           = TFT_SCKEY_BTN_RECT_Y + (2 * TFT_SCKEY_BTN_GAP_Y);
+  textParams.rect_x_len       = TFT_SCKEY_BTN2_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SCKEY_BTN2_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
+  textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+
+  textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
+  textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
+  textParams.text_color       = TFT_SCKEY_BTN_TXT_CLR;
+
+  tft_draw_text(textParams);
+
+  // Button 6 Clear
+  tft_screen_text_params_init(&textParams);
+
+  textParams.text_x           = TFT_SCKEY_BTN6_TXT_X;
+  textParams.text_y           = TFT_SCKEY_BTN6_TXT_Y;
+  textParams.text             = TFT_SCKEY_BTN6_TXT;
+  textParams.text_font        = &TFT_SCKEY_BTN_TXT_FONT;
+
+  textParams.rect_x           = TFT_SCKEY_BTN_RECT_X + (3 * TFT_SCKEY_BTN_GAP_X);
+  textParams.rect_y           = TFT_SCKEY_BTN_RECT_Y + (2 * TFT_SCKEY_BTN_GAP_Y);
+  textParams.rect_x_len       = TFT_SCKEY_BTN2_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SCKEY_BTN2_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
+  textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+
+  textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
+  textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
+  textParams.text_color       = TFT_SCKEY_BTN_TXT_CLR;
+
+  tft_draw_text(textParams);
+
+  // Button 7 OK
+  tft_screen_text_params_init(&textParams);
+
+  textParams.text_x           = TFT_SCKEY_BTN7_TXT_X;
+  textParams.text_y           = TFT_SCKEY_BTN7_TXT_Y;
+  textParams.text             = TFT_SCKEY_BTN7_TXT;
+  textParams.text_font        = &TFT_SCKEY_BTN7_TXT_FONT;
+
+  textParams.rect_x           = TFT_SCKEY_BTN7_RECT_X;
+  textParams.rect_y           = TFT_SCKEY_BTN7_RECT_Y;
+  textParams.rect_x_len       = TFT_SCKEY_BTN7_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SCKEY_BTN7_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SCKEY_BTN7_RECT_THICK;
+  textParams.fill_en          = TFT_SCKEY_BTN7_FILL_EN;
+
+  textParams.fill_color       = TFT_SCKEY_BTN7_FILL_CLR;
+  textParams.rect_color       = TFT_SCKEY_BTN7_RECT_CLR;
+  textParams.text_color       = TFT_SCKEY_BTN7_TXT_CLR;
+
+  tft_draw_text(textParams);
+
+  // Text 1 Input textbox
+  tft_screen_text_params_init(&textParams);
+
+  textParams.text_x           = TFT_SCKEY_TXT1_TXT_X;
+  textParams.text_y           = TFT_SCKEY_TXT1_TXT_Y;
+  textParams.text             = TFT_SCKEY_TXT1_TXT;
+  textParams.text_font        = &TFT_SCKEY_TXT1_TXT_FONT;
+
+  textParams.rect_x           = TFT_SCKEY_TXT1_RECT_X;
+  textParams.rect_y           = TFT_SCKEY_TXT1_RECT_Y;
+  textParams.rect_x_len       = TFT_SCKEY_TXT1_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SCKEY_TXT1_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SCKEY_TXT1_RECT_THICK;
+  textParams.fill_en          = TFT_SCKEY_TXT1_FILL_EN;
+
+  textParams.fill_color       = TFT_SCKEY_TXT1_FILL_CLR;
+  textParams.rect_color       = TFT_SCKEY_TXT1_RECT_CLR;
+  textParams.text_color       = TFT_SCKEY_TXT1_TXT_CLR;
+
+  tft_draw_text(textParams);
+
+  // Bottom row buttons
+  tft_draw_arrow_button(TFT_SCKEY_BTN3_ARROW_X, TFT_SCKEY_BTN3_ARROW_Y, TFT_SCKEY_BTN3_ARROW_CLR, TFT_SCKEY_BTN3_ARROW_DIR);
+  tft_draw_arrow_button(TFT_SCKEY_BTN4_ARROW_X, TFT_SCKEY_BTN4_ARROW_Y, TFT_SCKEY_BTN4_ARROW_CLR, TFT_SCKEY_BTN4_ARROW_DIR);
+}

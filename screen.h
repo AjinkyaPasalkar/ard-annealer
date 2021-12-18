@@ -5,6 +5,8 @@
 #include "screens/screen_2.h"
 #include "screens/screen_3.h"
 #include "screens/screen_4.h"
+#include "screens/screen_key.h"
+
 /*!
     @brief    Screen Text Parameters
 */
