@@ -71,3 +71,32 @@ void tft_draw_text(SCREEN_TEXT_Params params)
   tft.setCursor(params.text_x, params.text_y);
   tft.println(params.text);
 }
+
+void tft_draw_arrow_button(uint16_t x, uint16_t y, uint16_t color, uint16_t dir)
+{
+  uint16_t x1, x2, x3, y1, y2, y3;
+  switch (dir)
+  {
+    case 0:
+      x1 = x - 10;  y1 = y + 8;
+      x2 = x;       y2 = y - 8;
+      x3 = x + 10;  y3 = y + 8;
+      break;
+    case 1:
+      x1 = x - 10;  y1 = y - 8;
+      x2 = x;       y2 = y + 8;
+      x3 = x + 10;  y3 = y - 8;
+      break;
+    case 2:
+      x1 = x - 8;   y1 = y - 10;
+      x2 = x + 8;   y2 = y;
+      x3 = x - 8;   y3 = y + 10;
+      break;
+    case 3:
+      x1 = x + 8;   y1 = y - 10;
+      x2 = x - 8;   y2 = y;
+      x3 = x + 8;   y3 = y + 10;
+      break;
+  }
+  tft.fillTriangle(x1, y1, x2, y2, x3, y3, color);
+}
