@@ -532,7 +532,7 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_BTN2_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_BTN2_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
-  
+
   textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
   textParams.round_en         = TFT_SCKEY_BTN_ROUND_EN;
 
@@ -555,7 +555,7 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_BTN2_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_BTN2_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
-  
+
   textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
   textParams.round_en         = TFT_SCKEY_BTN_ROUND_EN;
 
@@ -601,7 +601,7 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_TXT1_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_TXT1_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_TXT1_RECT_THICK;
-  
+
   textParams.fill_en          = TFT_SCKEY_TXT1_FILL_EN;
 
   textParams.fill_color       = TFT_SCKEY_TXT1_FILL_CLR;
@@ -613,4 +613,78 @@ void tft_draw_sckey(void)
   // Bottom row buttons
   tft_draw_arrow_button(TFT_SCKEY_BTN3_ARROW_X, TFT_SCKEY_BTN3_ARROW_Y, TFT_SCKEY_BTN3_ARROW_CLR, TFT_SCKEY_BTN3_ARROW_DIR);
   tft_draw_arrow_button(TFT_SCKEY_BTN4_ARROW_X, TFT_SCKEY_BTN4_ARROW_Y, TFT_SCKEY_BTN4_ARROW_CLR, TFT_SCKEY_BTN4_ARROW_DIR);
+}
+
+/*!
+    @brief    Draw screen 7 Error
+*/
+void tft_draw_sc7(void)
+{
+  SCREEN_TEXT_Params textParams;
+
+  // Erase previous screen
+  tft.fillScreen(ILI9341_BLACK);
+
+  // Draw border of screen white
+  tft_draw_border(ILI9341_RED);
+
+  // title
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC7_TITLE_TXT_X;
+  textParams.text_y       = TFT_SC7_TITLE_TXT_Y;
+  textParams.text         = TFT_SC7_TITLE_TXT;
+  textParams.text_font    = &TFT_SC7_TITLE_TXT_FONT;
+  textParams.text_color   = TFT_SC7_TITLE_TXT_CLR;
+  tft_draw_text(textParams);
+
+  // Text 1
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x       = TFT_SC7_TXT1_TXT_X;
+  textParams.text_y       = TFT_SC7_TXT1_TXT_Y;
+  textParams.text         = TFT_SC7_TXT1_TXT;
+  textParams.text_font    = &TFT_SC7_TXT1_TXT_FONT;
+  textParams.text_color   = TFT_SC7_TXT1_TXT_CLR;
+  tft_draw_text(textParams);
+
+  // button 1
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x           = TFT_SC7_BTN1_TXT_X;
+  textParams.text_y           = TFT_SC7_BTN1_TXT_Y;
+  textParams.text             = TFT_SC7_BTN1_TXT;
+  textParams.text_font        = &TFT_SC7_BTN1_TXT_FONT;
+
+  textParams.rect_x           = TFT_SC7_BTN1_RECT_X;
+  textParams.rect_y           = TFT_SC7_BTN1_RECT_Y;
+  textParams.rect_x_len       = TFT_SC7_BTN1_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC7_BTN1_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC7_BTN1_RECT_THICK;
+
+  textParams.round_en         = TFT_SC7_BTN1_ROUND_EN;
+  textParams.fill_en          = TFT_SC7_BTN1_FILL_EN;
+
+  textParams.text_color       = TFT_SC7_BTN1_TXT_CLR;
+  textParams.rect_color       = TFT_SC7_BTN1_RECT_CLR;
+  textParams.fill_color       = TFT_SC7_BTN1_FILL_CLR;
+  tft_draw_text(textParams);
+
+  // button 2
+  tft_screen_text_params_init(&textParams);
+  textParams.text_x           = TFT_SC7_BTN2_TXT_X;
+  textParams.text_y           = TFT_SC7_BTN2_TXT_Y;
+  textParams.text             = TFT_SC7_BTN2_TXT;
+  textParams.text_font        = &TFT_SC7_BTN2_TXT_FONT;
+
+  textParams.rect_x           = TFT_SC7_BTN2_RECT_X;
+  textParams.rect_y           = TFT_SC7_BTN2_RECT_Y;
+  textParams.rect_x_len       = TFT_SC7_BTN2_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC7_BTN2_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC7_BTN2_RECT_THICK;
+
+  textParams.round_en         = TFT_SC7_BTN2_ROUND_EN;
+  textParams.fill_en          = TFT_SC7_BTN2_FILL_EN;
+
+  textParams.text_color       = TFT_SC7_BTN2_TXT_CLR;
+  textParams.rect_color       = TFT_SC7_BTN2_RECT_CLR;
+  textParams.fill_color       = TFT_SC7_BTN2_FILL_CLR;
+  tft_draw_text(textParams);
 }
