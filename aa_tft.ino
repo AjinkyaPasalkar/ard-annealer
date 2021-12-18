@@ -510,6 +510,7 @@ void tft_draw_sckey(void)
       textParams.rect_y_len       = TFT_SCKEY_BTN1_RECT_YLEN;
       textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
       textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+      textParams.round_en         = TFT_SCKEY_BTN_ROUND_EN;
 
       textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
       textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
@@ -531,7 +532,9 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_BTN2_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_BTN2_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
+  
   textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+  textParams.round_en         = TFT_SCKEY_BTN_ROUND_EN;
 
   textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
   textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
@@ -552,7 +555,9 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_BTN2_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_BTN2_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
+  
   textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+  textParams.round_en         = TFT_SCKEY_BTN_ROUND_EN;
 
   textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
   textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
@@ -573,6 +578,8 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_BTN7_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_BTN7_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_BTN7_RECT_THICK;
+
+  textParams.round_en         = TFT_SCKEY_BTN7_ROUND_EN;
   textParams.fill_en          = TFT_SCKEY_BTN7_FILL_EN;
 
   textParams.fill_color       = TFT_SCKEY_BTN7_FILL_CLR;
@@ -594,6 +601,7 @@ void tft_draw_sckey(void)
   textParams.rect_x_len       = TFT_SCKEY_TXT1_RECT_XLEN;
   textParams.rect_y_len       = TFT_SCKEY_TXT1_RECT_YLEN;
   textParams.rect_thickness   = TFT_SCKEY_TXT1_RECT_THICK;
+  
   textParams.fill_en          = TFT_SCKEY_TXT1_FILL_EN;
 
   textParams.fill_color       = TFT_SCKEY_TXT1_FILL_CLR;

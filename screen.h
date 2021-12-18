@@ -24,6 +24,7 @@ typedef struct {
   uint16_t        rect_y_len;       /*!< Height */
 
   uint8_t         fill_en;          /*!< Enable fill. Default: false */
+  uint8_t         round_en;         /*!< Enable rounded corners. Default: false */
 
   uint16_t        text_color;       /*!< Text color */
   uint16_t        rect_color;       /*!< Border color */

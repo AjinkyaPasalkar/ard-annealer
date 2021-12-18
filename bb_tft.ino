@@ -45,6 +45,7 @@ void tft_screen_text_params_init(SCREEN_TEXT_Params *params)
   params->rect_y_len        = 0;
 
   params->fill_en           = false;
+  params->round_en           = false;
 
   params->text_color        = ILI9341_WHITE;
   params->rect_color        = ILI9341_WHITE;
@@ -57,13 +58,30 @@ void tft_screen_text_params_init(SCREEN_TEXT_Params *params)
 */
 void tft_draw_text(SCREEN_TEXT_Params params)
 {
+  uint16_t radius = 8;
   if (params.fill_en == true)
   {
-    tft.fillRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.fill_color);
+    if (params.round_en == true)
+    {
+      tft.fillRoundRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, radius, params.fill_color);
+    }
+    else
+    {
+      tft.fillRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.fill_color);
+    }
+    
   }
 
   // Draw box
-  tft_draw_thick_rect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.rect_color, params.rect_thickness);
+  if (params.round_en == true)
+    {
+      tft.drawRoundRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, radius, params.rect_color);
+    }
+    else
+    {
+      tft_draw_thick_rect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.rect_color, params.rect_thickness);
+    }
+  
 
   tft.setFont(params.text_font);
   tft.setTextSize(params.text_size);
