@@ -69,19 +69,19 @@ void tft_draw_text(SCREEN_TEXT_Params params)
     {
       tft.fillRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.fill_color);
     }
-    
+
   }
 
   // Draw box
   if (params.round_en == true)
-    {
-      tft.drawRoundRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, radius, params.rect_color);
-    }
-    else
-    {
-      tft_draw_thick_rect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.rect_color, params.rect_thickness);
-    }
-  
+  {
+    tft.drawRoundRect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, radius, params.rect_color);
+  }
+  else
+  {
+    tft_draw_thick_rect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.rect_color, params.rect_thickness);
+  }
+
 
   tft.setFont(params.text_font);
   tft.setTextSize(params.text_size);

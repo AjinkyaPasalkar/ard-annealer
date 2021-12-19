@@ -6,6 +6,7 @@
 #include "screens/screen_3.h"
 #include "screens/screen_4.h"
 #include "screens/screen_key.h"
+#include "screens/screen_6.h"
 #include "screens/screen_7.h"
 
 /*!
