@@ -12,6 +12,7 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(PIN_TFT_CS, PIN_TFT_DC);
 
 void setup()
 {
+  ed_init();
   tft_init();
 }
 
