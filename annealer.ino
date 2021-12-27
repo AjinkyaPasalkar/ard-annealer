@@ -14,6 +14,7 @@ Servo Servo1;
 
 void setup()
 {
+  ssr_init();
   ir_init();
   servo_init();
   ed_init();
