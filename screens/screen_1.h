@@ -51,7 +51,7 @@
 #define TFT_SC1_BTN2_FILL_CLR   TFT_SC1_BTN1_FILL_CLR
 
 // Button 3 - UP
-#define TFT_SC1_BTN3_ARROW_X        280
+#define TFT_SC1_BTN3_ARROW_X        290
 #define TFT_SC1_BTN3_ARROW_Y        77
 #define TFT_SC1_BTN3_ARROW_DIR      0
 
@@ -69,7 +69,7 @@
 #define TFT_SC1_BTN3_FILL_CLR       TFT_SC1_BTN1_FILL_CLR
 
 // Button 4 - DOWN
-#define TFT_SC1_BTN4_ARROW_X        TFT_SCKEY_BTN3_ARROW_X
+#define TFT_SC1_BTN4_ARROW_X        TFT_SC1_BTN3_ARROW_X
 #define TFT_SC1_BTN4_ARROW_Y        148
 #define TFT_SC1_BTN4_ARROW_DIR      1
 
