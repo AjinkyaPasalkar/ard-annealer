@@ -45,12 +45,8 @@ void tft_draw_sc1(void)
 
   // selection window
   tft.drawRect(10, 40, 320 - 10 - 10, 145, ILI9341_WHITE);
-  tft.drawRect(270, 40, 40, 73, ILI9341_WHITE);
-  tft.drawRect(270, 40 + 72, 40, 73, ILI9341_WHITE);
   tft.drawFastHLine(10, 40 + 48, 260, ILI9341_WHITE);
   tft.drawFastHLine(10, 40 + 48 + 48, 260, ILI9341_WHITE);
-  tft.fillTriangle(290, 70, 280, 85, 300, 85, ILI9341_WHITE);
-  tft.fillTriangle(290, 156, 280, 141, 300, 141, ILI9341_WHITE);
 
   // button 1
   tft_screen_text_params_init(&textParams);
@@ -65,8 +61,12 @@ void tft_draw_sc1(void)
   textParams.rect_y_len       = TFT_SC1_BTN1_RECT_YLEN;
   textParams.rect_thickness   = TFT_SC1_BTN1_RECT_THICK;
 
+  textParams.fill_en          = TFT_SC1_BTN1_FILL_EN;
+  textParams.round_en         = TFT_SC1_BTN1_ROUND_EN;
+
   textParams.text_color       = TFT_SC1_BTN1_TXT_CLR;
   textParams.rect_color       = TFT_SC1_BTN1_RECT_CLR;
+  textParams.fill_color       = TFT_SC1_BTN1_FILL_CLR;
   tft_draw_text(textParams);
 
   // button 2
@@ -82,9 +82,49 @@ void tft_draw_sc1(void)
   textParams.rect_y_len       = TFT_SC1_BTN2_RECT_YLEN;
   textParams.rect_thickness   = TFT_SC1_BTN2_RECT_THICK;
 
+  textParams.fill_en          = TFT_SC1_BTN2_FILL_EN;
+  textParams.round_en         = TFT_SC1_BTN2_ROUND_EN;
+
   textParams.text_color       = TFT_SC1_BTN2_TXT_CLR;
   textParams.rect_color       = TFT_SC1_BTN2_RECT_CLR;
+  textParams.fill_color       = TFT_SC1_BTN2_FILL_CLR;
   tft_draw_text(textParams);
+
+  // Button 3 - UP
+  tft_screen_text_params_init(&textParams);
+
+  textParams.rect_x           = TFT_SC1_BTN3_RECT_X;
+  textParams.rect_y           = TFT_SC1_BTN3_RECT_Y;
+  textParams.rect_x_len       = TFT_SC1_BTN3_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC1_BTN3_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC1_BTN3_RECT_THICK;
+
+  textParams.fill_en          = TFT_SC1_BTN3_FILL_EN;
+  textParams.round_en         = TFT_SC1_BTN3_ROUND_EN;
+
+  textParams.fill_color       = TFT_SC1_BTN3_FILL_CLR;
+  textParams.rect_color       = TFT_SC1_BTN3_RECT_CLR;
+  
+  tft_draw_text(textParams);
+  tft_draw_arrow_button(TFT_SC1_BTN3_ARROW_X, TFT_SC1_BTN3_ARROW_Y, TFT_SC1_BTN3_ARROW_CLR, TFT_SC1_BTN3_ARROW_DIR);
+
+  // Button 4 - DOWN
+  tft_screen_text_params_init(&textParams);
+
+  textParams.rect_x           = TFT_SC1_BTN4_RECT_X;
+  textParams.rect_y           = TFT_SC1_BTN4_RECT_Y;
+  textParams.rect_x_len       = TFT_SC1_BTN4_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC1_BTN4_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC1_BTN4_RECT_THICK;
+
+  textParams.fill_en          = TFT_SC1_BTN4_FILL_EN;
+  textParams.round_en         = TFT_SC1_BTN4_ROUND_EN;
+
+  textParams.fill_color       = TFT_SC1_BTN4_FILL_CLR;
+  textParams.rect_color       = TFT_SC1_BTN4_RECT_CLR;
+  
+  tft_draw_text(textParams);
+  tft_draw_arrow_button(TFT_SC1_BTN4_ARROW_X, TFT_SC1_BTN4_ARROW_Y, TFT_SC1_BTN4_ARROW_CLR, TFT_SC1_BTN4_ARROW_DIR);
 }
 
 void tft_draw_sc2(void)
