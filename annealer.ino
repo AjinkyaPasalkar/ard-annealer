@@ -28,15 +28,21 @@ struct
   bool      servo;          /*!< Servo status. 0/90 */
   uint32_t  servo_time;     /*!< Servo 90 time. ms */
   uint16_t  count;          /*!< Number of cases completed */
+  int16_t   total_cases;    /*!< Total number of cases to be completed */
   uint8_t   case_id;        /*!< Selected case id */
   char     *case_name;      /*!< Selected case name */
   uint16_t  case_time;      /*!< Selected case time. (ms/100) */
+  uint8_t   ann_state;      /*!< Annealing state. Stopped Running Paused */
 } MACHINE_STATE;
 struct
 {
   uint8_t selected_id;
   uint8_t max_cases;
-}SC1_STATE;
+} SC1_STATE;
+struct
+{
+  int16_t count;
+} SC2_STATE;
 
 void setup()
 {
