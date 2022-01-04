@@ -8,6 +8,7 @@
 #include "screens/screen_key.h"
 #include "screens/screen_6.h"
 #include "screens/screen_7.h"
+#include "screens/screen_8.h"
 
 /*!
     @brief    Screen Text Parameters
