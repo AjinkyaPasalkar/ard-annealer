@@ -142,6 +142,59 @@ void task_touch(void)
 
   else if (MACHINE_STATE.screen_id == 3)
   {
+    if ((p.x > TFT_SC3_BTN1_RECT_X) && (p.x < TFT_SC3_BTN1_RECT_X + TFT_SC3_BTN1_RECT_XLEN) &&
+        (p.y > TFT_SC3_BTN1_RECT_Y) && (p.y < TFT_SC3_BTN1_RECT_Y + TFT_SC3_BTN1_RECT_YLEN))
+    {
+      // ADD pressed
 
+    }
+    else if ((p.x > TFT_SC3_BTN2_RECT_X) && (p.x < TFT_SC3_BTN2_RECT_X + TFT_SC3_BTN2_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN2_RECT_Y) && (p.y < TFT_SC3_BTN2_RECT_Y + TFT_SC3_BTN2_RECT_YLEN))
+    {
+      // BACK pressed
+
+    }
+
+    else if ((p.x > TFT_SC3_BTN4_RECT_X) && (p.x < TFT_SC3_BTN4_RECT_X + TFT_SC3_BTN4_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN4_RECT_Y) && (p.y < TFT_SC3_BTN4_RECT_Y + TFT_SC3_BTN4_RECT_YLEN))
+    {
+      // EDIT pressed
+
+    }
+
+    else if ((p.x > TFT_SC3_BTN5_RECT_X) && (p.x < TFT_SC3_BTN5_RECT_X + TFT_SC3_BTN5_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN5_RECT_Y) && (p.y < TFT_SC3_BTN5_RECT_Y + TFT_SC3_BTN5_RECT_YLEN))
+    {
+      // TEST pressed
+
+    }
+
+    else if ((p.x > TFT_SC3_BTN6_RECT_X) && (p.x < TFT_SC3_BTN6_RECT_X + TFT_SC3_BTN6_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN6_RECT_Y) && (p.y < TFT_SC3_BTN6_RECT_Y + TFT_SC3_BTN6_RECT_YLEN))
+    {
+      // Seconds++ pressed
+
+    }
+
+    else if ((p.x > TFT_SC3_BTN7_RECT_X) && (p.x < TFT_SC3_BTN7_RECT_X + TFT_SC3_BTN7_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN7_RECT_Y) && (p.y < TFT_SC3_BTN7_RECT_Y + TFT_SC3_BTN7_RECT_YLEN))
+    {
+      // Seconds-- pressed
+
+    }
+    
+    else if ((p.x > TFT_SC3_BTN8_RECT_X) && (p.x < TFT_SC3_BTN8_RECT_X + TFT_SC3_BTN8_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN8_RECT_Y) && (p.y < TFT_SC3_BTN8_RECT_Y + TFT_SC3_BTN8_RECT_YLEN))
+    {
+      // miliSeconds++ pressed
+
+    }
+
+    else if ((p.x > TFT_SC3_BTN9_RECT_X) && (p.x < TFT_SC3_BTN9_RECT_X + TFT_SC3_BTN9_RECT_XLEN) &&
+             (p.y > TFT_SC3_BTN9_RECT_Y) && (p.y < TFT_SC3_BTN9_RECT_Y + TFT_SC3_BTN9_RECT_YLEN))
+    {
+      // miliSeconds-- pressed
+
+    }
   }
 }

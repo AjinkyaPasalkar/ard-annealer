@@ -402,11 +402,77 @@ void tft_draw_sc3(void)
   textParams.rect_color       = TFT_SC3_BTN5_RECT_CLR;
   tft_draw_text(textParams);
 
-  // up down buttons
-  tft.fillTriangle(85, 78, 75, 93, 95, 93, ILI9341_WHITE);
-  tft.fillTriangle(85, 164, 75, 149, 95, 149, ILI9341_WHITE);
-  tft.fillTriangle(155, 78, 145, 93, 165, 93, ILI9341_WHITE);
-  tft.fillTriangle(155, 164, 145, 149, 165, 149, ILI9341_WHITE);
+  // Button 6 - Seconds++
+  tft_screen_text_params_init(&textParams);
+
+  textParams.rect_x           = TFT_SC3_BTN6_RECT_X;
+  textParams.rect_y           = TFT_SC3_BTN6_RECT_Y;
+  textParams.rect_x_len       = TFT_SC3_BTN6_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC3_BTN6_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC3_BTN6_RECT_THICK;
+
+  textParams.fill_en          = TFT_SC3_BTN6_FILL_EN;
+  textParams.round_en         = TFT_SC3_BTN6_ROUND_EN;
+
+  textParams.fill_color       = TFT_SC3_BTN6_FILL_CLR;
+  textParams.rect_color       = TFT_SC3_BTN6_RECT_CLR;
+  
+  tft_draw_text(textParams);
+  tft_draw_arrow_button(TFT_SC3_BTN6_ARROW_X, TFT_SC3_BTN6_ARROW_Y, TFT_SC3_BTN6_ARROW_CLR, TFT_SC3_BTN6_ARROW_DIR);
+
+  // Button 7 - Seconds--
+  tft_screen_text_params_init(&textParams);
+
+  textParams.rect_x           = TFT_SC3_BTN7_RECT_X;
+  textParams.rect_y           = TFT_SC3_BTN7_RECT_Y;
+  textParams.rect_x_len       = TFT_SC3_BTN7_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC3_BTN7_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC3_BTN7_RECT_THICK;
+
+  textParams.fill_en          = TFT_SC3_BTN7_FILL_EN;
+  textParams.round_en         = TFT_SC3_BTN7_ROUND_EN;
+
+  textParams.fill_color       = TFT_SC3_BTN7_FILL_CLR;
+  textParams.rect_color       = TFT_SC3_BTN7_RECT_CLR;
+  
+  tft_draw_text(textParams);
+  tft_draw_arrow_button(TFT_SC3_BTN7_ARROW_X, TFT_SC3_BTN7_ARROW_Y, TFT_SC3_BTN7_ARROW_CLR, TFT_SC3_BTN7_ARROW_DIR);
+  
+  // Button 8 - miliSeconds++
+  tft_screen_text_params_init(&textParams);
+
+  textParams.rect_x           = TFT_SC3_BTN8_RECT_X;
+  textParams.rect_y           = TFT_SC3_BTN8_RECT_Y;
+  textParams.rect_x_len       = TFT_SC3_BTN8_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC3_BTN8_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC3_BTN8_RECT_THICK;
+
+  textParams.fill_en          = TFT_SC3_BTN8_FILL_EN;
+  textParams.round_en         = TFT_SC3_BTN8_ROUND_EN;
+
+  textParams.fill_color       = TFT_SC3_BTN8_FILL_CLR;
+  textParams.rect_color       = TFT_SC3_BTN8_RECT_CLR;
+  
+  tft_draw_text(textParams);
+  tft_draw_arrow_button(TFT_SC3_BTN8_ARROW_X, TFT_SC3_BTN8_ARROW_Y, TFT_SC3_BTN8_ARROW_CLR, TFT_SC3_BTN8_ARROW_DIR);
+  
+  // Button 9 - miliSeconds--
+  tft_screen_text_params_init(&textParams);
+
+  textParams.rect_x           = TFT_SC3_BTN9_RECT_X;
+  textParams.rect_y           = TFT_SC3_BTN9_RECT_Y;
+  textParams.rect_x_len       = TFT_SC3_BTN9_RECT_XLEN;
+  textParams.rect_y_len       = TFT_SC3_BTN9_RECT_YLEN;
+  textParams.rect_thickness   = TFT_SC3_BTN9_RECT_THICK;
+
+  textParams.fill_en          = TFT_SC3_BTN9_FILL_EN;
+  textParams.round_en         = TFT_SC3_BTN9_ROUND_EN;
+
+  textParams.fill_color       = TFT_SC3_BTN9_FILL_CLR;
+  textParams.rect_color       = TFT_SC3_BTN9_RECT_CLR;
+  
+  tft_draw_text(textParams);
+  tft_draw_arrow_button(TFT_SC3_BTN9_ARROW_X, TFT_SC3_BTN9_ARROW_Y, TFT_SC3_BTN9_ARROW_CLR, TFT_SC3_BTN9_ARROW_DIR);
 }
 
 /*!
