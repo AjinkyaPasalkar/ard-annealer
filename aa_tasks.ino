@@ -254,11 +254,32 @@ void task_touch(void)
 
   else if (MACHINE_STATE.screen_id == 6)
   {
-    
+    if ((p.x > TFT_SC6_BTN1_RECT_X) && (p.x < TFT_SC6_BTN1_RECT_X + TFT_SC6_BTN1_RECT_XLEN) &&
+        (p.y > TFT_SC6_BTN1_RECT_Y) && (p.y < TFT_SC6_BTN1_RECT_Y + TFT_SC6_BTN1_RECT_YLEN))
+    {
+      // REPEAT pressed
+    }
+
+    else if ((p.x > TFT_SC6_BTN2_RECT_X) && (p.x < TFT_SC6_BTN2_RECT_X + TFT_SC6_BTN2_RECT_XLEN) &&
+        (p.y > TFT_SC6_BTN2_RECT_Y) && (p.y < TFT_SC6_BTN2_RECT_Y + TFT_SC6_BTN2_RECT_YLEN))
+    {
+      // FINISH pressed
+    }
   }
 
   else if (MACHINE_STATE.screen_id == 7)
   {
+    if ((p.x > TFT_SC7_BTN1_RECT_X) && (p.x < TFT_SC7_BTN1_RECT_X + TFT_SC7_BTN1_RECT_XLEN) &&
+        (p.y > TFT_SC7_BTN1_RECT_Y) && (p.y < TFT_SC7_BTN1_RECT_Y + TFT_SC7_BTN1_RECT_YLEN))
+    {
+      // RETRY pressed
+    }
+
+    else if ((p.x > TFT_SC7_BTN2_RECT_X) && (p.x < TFT_SC7_BTN2_RECT_X + TFT_SC7_BTN2_RECT_XLEN) &&
+        (p.y > TFT_SC7_BTN2_RECT_Y) && (p.y < TFT_SC7_BTN2_RECT_Y + TFT_SC7_BTN2_RECT_YLEN))
+    {
+      // CANCEL pressed
+    }
     
   }
 
