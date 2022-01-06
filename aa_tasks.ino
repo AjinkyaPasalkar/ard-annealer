@@ -280,11 +280,20 @@ void task_touch(void)
     {
       // CANCEL pressed
     }
-    
   }
 
   else if (MACHINE_STATE.screen_id == 8)
   {
-    
+    if ((p.x > TFT_SC8_BTN1_RECT_X) && (p.x < TFT_SC8_BTN1_RECT_X + TFT_SC8_BTN1_RECT_XLEN) &&
+        (p.y > TFT_SC8_BTN1_RECT_Y) && (p.y < TFT_SC8_BTN1_RECT_Y + TFT_SC8_BTN1_RECT_YLEN))
+    {
+      // YES pressed
+    }
+
+    else if ((p.x > TFT_SC8_BTN2_RECT_X) && (p.x < TFT_SC8_BTN2_RECT_X + TFT_SC8_BTN2_RECT_XLEN) &&
+        (p.y > TFT_SC8_BTN2_RECT_Y) && (p.y < TFT_SC8_BTN2_RECT_Y + TFT_SC8_BTN2_RECT_YLEN))
+    {
+      // NO pressed
+    }
   }
 }
