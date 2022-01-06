@@ -197,4 +197,73 @@ void task_touch(void)
 
     }
   }
+
+  else if (MACHINE_STATE.screen_id == 4)
+  {
+    if ((p.x > TFT_SC4_BTN1_RECT_X) && (p.x < TFT_SC4_BTN1_RECT_X + TFT_SC4_BTN1_RECT_XLEN) &&
+        (p.y > TFT_SC4_BTN1_RECT_Y) && (p.y < TFT_SC4_BTN1_RECT_Y + TFT_SC4_BTN1_RECT_YLEN))
+    {
+      // STOP pressed
+    }
+
+    else if ((p.x > TFT_SC4_BTN2_RECT_X) && (p.x < TFT_SC4_BTN2_RECT_X + TFT_SC4_BTN2_RECT_XLEN) &&
+        (p.y > TFT_SC4_BTN2_RECT_Y) && (p.y < TFT_SC4_BTN2_RECT_Y + TFT_SC4_BTN2_RECT_YLEN))
+    {
+      // PAUSE pressed
+    }
+
+    else if ((p.x > TFT_SC4_BTN4_RECT_X) && (p.x < TFT_SC4_BTN4_RECT_X + TFT_SC4_BTN4_RECT_XLEN) &&
+        (p.y > TFT_SC4_BTN4_RECT_Y) && (p.y < TFT_SC4_BTN4_RECT_Y + TFT_SC4_BTN4_RECT_YLEN))
+    {
+      // SAVE pressed
+    }
+
+    else if ((p.x > TFT_SC4_BTN6_RECT_X) && (p.x < TFT_SC4_BTN6_RECT_X + TFT_SC4_BTN6_RECT_XLEN) &&
+             (p.y > TFT_SC4_BTN6_RECT_Y) && (p.y < TFT_SC4_BTN6_RECT_Y + TFT_SC4_BTN6_RECT_YLEN))
+    {
+      // Seconds++ pressed
+
+    }
+
+    else if ((p.x > TFT_SC4_BTN7_RECT_X) && (p.x < TFT_SC4_BTN7_RECT_X + TFT_SC4_BTN7_RECT_XLEN) &&
+             (p.y > TFT_SC4_BTN7_RECT_Y) && (p.y < TFT_SC4_BTN7_RECT_Y + TFT_SC4_BTN7_RECT_YLEN))
+    {
+      // Seconds-- pressed
+
+    }
+    
+    else if ((p.x > TFT_SC4_BTN8_RECT_X) && (p.x < TFT_SC4_BTN8_RECT_X + TFT_SC4_BTN8_RECT_XLEN) &&
+             (p.y > TFT_SC4_BTN8_RECT_Y) && (p.y < TFT_SC4_BTN8_RECT_Y + TFT_SC4_BTN8_RECT_YLEN))
+    {
+      // miliSeconds++ pressed
+
+    }
+
+    else if ((p.x > TFT_SC4_BTN9_RECT_X) && (p.x < TFT_SC4_BTN9_RECT_X + TFT_SC4_BTN9_RECT_XLEN) &&
+             (p.y > TFT_SC4_BTN9_RECT_Y) && (p.y < TFT_SC4_BTN9_RECT_Y + TFT_SC4_BTN9_RECT_YLEN))
+    {
+      // miliSeconds-- pressed
+
+    }
+  }
+
+  else if (MACHINE_STATE.screen_id == 5)
+  {
+    
+  }
+
+  else if (MACHINE_STATE.screen_id == 6)
+  {
+    
+  }
+
+  else if (MACHINE_STATE.screen_id == 7)
+  {
+    
+  }
+
+  else if (MACHINE_STATE.screen_id == 8)
+  {
+    
+  }
 }
