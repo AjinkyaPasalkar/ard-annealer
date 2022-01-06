@@ -20,6 +20,7 @@ unsigned long prevMillis_TOUCH = 0;
 struct
 {
   uint8_t   screen_id;      /*!< Current screen being displayed */
+  uint8_t   prev_screen_id; /*!< Previous screen id */
   bool      motor;          /*!< Motor status. ON/OFF */
   uint32_t  motor_time;     /*!< Motor ON time. ms */
   bool      ir;             /*!< IR status. Object Detected/Not Detected */

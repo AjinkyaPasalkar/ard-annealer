@@ -288,12 +288,36 @@ void task_touch(void)
         (p.y > TFT_SC8_BTN1_RECT_Y) && (p.y < TFT_SC8_BTN1_RECT_Y + TFT_SC8_BTN1_RECT_YLEN))
     {
       // YES pressed
+      if (MACHINE_STATE.prev_screen_id == 2)
+      {
+        sc8_delete_case(MACHINE_STATE.case_id);
+      }
+      else if (MACHINE_STATE.prev_screen_id == 4)
+      {
+        sc8_stop_annealing();
+      }
+      MACHINE_STATE.prev_screen_id = 8;
+      MACHINE_STATE.screen_id = 1;
+      tft_draw_sc1();
     }
-
     else if ((p.x > TFT_SC8_BTN2_RECT_X) && (p.x < TFT_SC8_BTN2_RECT_X + TFT_SC8_BTN2_RECT_XLEN) &&
              (p.y > TFT_SC8_BTN2_RECT_Y) && (p.y < TFT_SC8_BTN2_RECT_Y + TFT_SC8_BTN2_RECT_YLEN))
     {
       // NO pressed
+      if (MACHINE_STATE.prev_screen_id == 2)
+      {
+        // Go to screen 2
+        MACHINE_STATE.prev_screen_id = 8;
+        MACHINE_STATE.screen_id = 2;
+        tft_draw_sc2();
+      }
+      else if (MACHINE_STATE.prev_screen_id == 4)
+      {
+        // Go to screen 4
+        MACHINE_STATE.prev_screen_id = 8;
+        MACHINE_STATE.screen_id = 4;
+        tft_draw_sc4();
+      }
     }
   }
 }

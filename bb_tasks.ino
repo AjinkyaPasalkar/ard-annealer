@@ -17,3 +17,13 @@ void sc2_draw_count(void)
 {
 
 }
+
+void sc8_delete_case(uint8_t case_id)
+{
+  
+}
+
+void sc8_stop_annealing(void)
+{
+  
+}
