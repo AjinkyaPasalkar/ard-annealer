@@ -182,7 +182,7 @@ void task_touch(void)
       // Seconds-- pressed
 
     }
-    
+
     else if ((p.x > TFT_SC3_BTN8_RECT_X) && (p.x < TFT_SC3_BTN8_RECT_X + TFT_SC3_BTN8_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN8_RECT_Y) && (p.y < TFT_SC3_BTN8_RECT_Y + TFT_SC3_BTN8_RECT_YLEN))
     {
@@ -207,13 +207,13 @@ void task_touch(void)
     }
 
     else if ((p.x > TFT_SC4_BTN2_RECT_X) && (p.x < TFT_SC4_BTN2_RECT_X + TFT_SC4_BTN2_RECT_XLEN) &&
-        (p.y > TFT_SC4_BTN2_RECT_Y) && (p.y < TFT_SC4_BTN2_RECT_Y + TFT_SC4_BTN2_RECT_YLEN))
+             (p.y > TFT_SC4_BTN2_RECT_Y) && (p.y < TFT_SC4_BTN2_RECT_Y + TFT_SC4_BTN2_RECT_YLEN))
     {
       // PAUSE pressed
     }
 
     else if ((p.x > TFT_SC4_BTN4_RECT_X) && (p.x < TFT_SC4_BTN4_RECT_X + TFT_SC4_BTN4_RECT_XLEN) &&
-        (p.y > TFT_SC4_BTN4_RECT_Y) && (p.y < TFT_SC4_BTN4_RECT_Y + TFT_SC4_BTN4_RECT_YLEN))
+             (p.y > TFT_SC4_BTN4_RECT_Y) && (p.y < TFT_SC4_BTN4_RECT_Y + TFT_SC4_BTN4_RECT_YLEN))
     {
       // SAVE pressed
     }
@@ -231,7 +231,7 @@ void task_touch(void)
       // Seconds-- pressed
 
     }
-    
+
     else if ((p.x > TFT_SC4_BTN8_RECT_X) && (p.x < TFT_SC4_BTN8_RECT_X + TFT_SC4_BTN8_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN8_RECT_Y) && (p.y < TFT_SC4_BTN8_RECT_Y + TFT_SC4_BTN8_RECT_YLEN))
     {
@@ -249,7 +249,7 @@ void task_touch(void)
 
   else if (MACHINE_STATE.screen_id == 5)
   {
-    
+
   }
 
   else if (MACHINE_STATE.screen_id == 6)
@@ -261,7 +261,7 @@ void task_touch(void)
     }
 
     else if ((p.x > TFT_SC6_BTN2_RECT_X) && (p.x < TFT_SC6_BTN2_RECT_X + TFT_SC6_BTN2_RECT_XLEN) &&
-        (p.y > TFT_SC6_BTN2_RECT_Y) && (p.y < TFT_SC6_BTN2_RECT_Y + TFT_SC6_BTN2_RECT_YLEN))
+             (p.y > TFT_SC6_BTN2_RECT_Y) && (p.y < TFT_SC6_BTN2_RECT_Y + TFT_SC6_BTN2_RECT_YLEN))
     {
       // FINISH pressed
     }
@@ -276,7 +276,7 @@ void task_touch(void)
     }
 
     else if ((p.x > TFT_SC7_BTN2_RECT_X) && (p.x < TFT_SC7_BTN2_RECT_X + TFT_SC7_BTN2_RECT_XLEN) &&
-        (p.y > TFT_SC7_BTN2_RECT_Y) && (p.y < TFT_SC7_BTN2_RECT_Y + TFT_SC7_BTN2_RECT_YLEN))
+             (p.y > TFT_SC7_BTN2_RECT_Y) && (p.y < TFT_SC7_BTN2_RECT_Y + TFT_SC7_BTN2_RECT_YLEN))
     {
       // CANCEL pressed
     }
@@ -291,7 +291,7 @@ void task_touch(void)
     }
 
     else if ((p.x > TFT_SC8_BTN2_RECT_X) && (p.x < TFT_SC8_BTN2_RECT_X + TFT_SC8_BTN2_RECT_XLEN) &&
-        (p.y > TFT_SC8_BTN2_RECT_Y) && (p.y < TFT_SC8_BTN2_RECT_Y + TFT_SC8_BTN2_RECT_YLEN))
+             (p.y > TFT_SC8_BTN2_RECT_Y) && (p.y < TFT_SC8_BTN2_RECT_Y + TFT_SC8_BTN2_RECT_YLEN))
     {
       // NO pressed
     }

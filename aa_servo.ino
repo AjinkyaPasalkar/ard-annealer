@@ -19,5 +19,5 @@ void servo_set_angle(uint8_t angle)
     currAngle = angle;
     Servo1.write(currAngle);
   }
-  
+
 }

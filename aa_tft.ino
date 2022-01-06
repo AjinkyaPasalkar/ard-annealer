@@ -104,7 +104,7 @@ void tft_draw_sc1(void)
 
   textParams.fill_color       = TFT_SC1_BTN3_FILL_CLR;
   textParams.rect_color       = TFT_SC1_BTN3_RECT_CLR;
-  
+
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC1_BTN3_ARROW_X, TFT_SC1_BTN3_ARROW_Y, TFT_SC1_BTN3_ARROW_CLR, TFT_SC1_BTN3_ARROW_DIR);
 
@@ -122,7 +122,7 @@ void tft_draw_sc1(void)
 
   textParams.fill_color       = TFT_SC1_BTN4_FILL_CLR;
   textParams.rect_color       = TFT_SC1_BTN4_RECT_CLR;
-  
+
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC1_BTN4_ARROW_X, TFT_SC1_BTN4_ARROW_Y, TFT_SC1_BTN4_ARROW_CLR, TFT_SC1_BTN4_ARROW_DIR);
 }
@@ -416,7 +416,7 @@ void tft_draw_sc3(void)
 
   textParams.fill_color       = TFT_SC3_BTN6_FILL_CLR;
   textParams.rect_color       = TFT_SC3_BTN6_RECT_CLR;
-  
+
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC3_BTN6_ARROW_X, TFT_SC3_BTN6_ARROW_Y, TFT_SC3_BTN6_ARROW_CLR, TFT_SC3_BTN6_ARROW_DIR);
 
@@ -434,10 +434,10 @@ void tft_draw_sc3(void)
 
   textParams.fill_color       = TFT_SC3_BTN7_FILL_CLR;
   textParams.rect_color       = TFT_SC3_BTN7_RECT_CLR;
-  
+
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC3_BTN7_ARROW_X, TFT_SC3_BTN7_ARROW_Y, TFT_SC3_BTN7_ARROW_CLR, TFT_SC3_BTN7_ARROW_DIR);
-  
+
   // Button 8 - miliSeconds++
   tft_screen_text_params_init(&textParams);
 
@@ -452,10 +452,10 @@ void tft_draw_sc3(void)
 
   textParams.fill_color       = TFT_SC3_BTN8_FILL_CLR;
   textParams.rect_color       = TFT_SC3_BTN8_RECT_CLR;
-  
+
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC3_BTN8_ARROW_X, TFT_SC3_BTN8_ARROW_Y, TFT_SC3_BTN8_ARROW_CLR, TFT_SC3_BTN8_ARROW_DIR);
-  
+
   // Button 9 - miliSeconds--
   tft_screen_text_params_init(&textParams);
 
@@ -470,7 +470,7 @@ void tft_draw_sc3(void)
 
   textParams.fill_color       = TFT_SC3_BTN9_FILL_CLR;
   textParams.rect_color       = TFT_SC3_BTN9_RECT_CLR;
-  
+
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC3_BTN9_ARROW_X, TFT_SC3_BTN9_ARROW_Y, TFT_SC3_BTN9_ARROW_CLR, TFT_SC3_BTN9_ARROW_DIR);
 }
