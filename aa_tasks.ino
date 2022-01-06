@@ -258,12 +258,19 @@ void task_touch(void)
         (p.y > TFT_SC6_BTN1_RECT_Y) && (p.y < TFT_SC6_BTN1_RECT_Y + TFT_SC6_BTN1_RECT_YLEN))
     {
       // REPEAT pressed
+      sc6_repeat_annealing();
+      MACHINE_STATE.prev_screen_id = 6;
+      MACHINE_STATE.screen_id = 4;
+      tft_draw_sc4();
     }
 
     else if ((p.x > TFT_SC6_BTN2_RECT_X) && (p.x < TFT_SC6_BTN2_RECT_X + TFT_SC6_BTN2_RECT_XLEN) &&
              (p.y > TFT_SC6_BTN2_RECT_Y) && (p.y < TFT_SC6_BTN2_RECT_Y + TFT_SC6_BTN2_RECT_YLEN))
     {
       // FINISH pressed
+      MACHINE_STATE.prev_screen_id = 6;
+      MACHINE_STATE.screen_id = 1;
+      tft_draw_sc1();
     }
   }
 
@@ -273,12 +280,19 @@ void task_touch(void)
         (p.y > TFT_SC7_BTN1_RECT_Y) && (p.y < TFT_SC7_BTN1_RECT_Y + TFT_SC7_BTN1_RECT_YLEN))
     {
       // RETRY pressed
+      sc7_retry_annealing();
+      MACHINE_STATE.prev_screen_id = 7;
+      MACHINE_STATE.screen_id = 4;
+      tft_draw_sc4();
     }
 
     else if ((p.x > TFT_SC7_BTN2_RECT_X) && (p.x < TFT_SC7_BTN2_RECT_X + TFT_SC7_BTN2_RECT_XLEN) &&
              (p.y > TFT_SC7_BTN2_RECT_Y) && (p.y < TFT_SC7_BTN2_RECT_Y + TFT_SC7_BTN2_RECT_YLEN))
     {
       // CANCEL pressed
+      MACHINE_STATE.prev_screen_id = 7;
+      MACHINE_STATE.screen_id = 1;
+      tft_draw_sc1();
     }
   }
 
