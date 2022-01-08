@@ -146,55 +146,62 @@ void task_touch(void)
         (p.y > TFT_SC3_BTN1_RECT_Y) && (p.y < TFT_SC3_BTN1_RECT_Y + TFT_SC3_BTN1_RECT_YLEN))
     {
       // ADD pressed
-
+      sc3_add_case();
+      MACHINE_STATE.prev_screen_id = 3;
+      MACHINE_STATE.screen_id = 1;
+      tft_draw_sc1();
     }
     else if ((p.x > TFT_SC3_BTN2_RECT_X) && (p.x < TFT_SC3_BTN2_RECT_X + TFT_SC3_BTN2_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN2_RECT_Y) && (p.y < TFT_SC3_BTN2_RECT_Y + TFT_SC3_BTN2_RECT_YLEN))
     {
       // BACK pressed
-
+      MACHINE_STATE.prev_screen_id = 3;
+      MACHINE_STATE.screen_id = 1;
+      tft_draw_sc1();
     }
 
     else if ((p.x > TFT_SC3_BTN4_RECT_X) && (p.x < TFT_SC3_BTN4_RECT_X + TFT_SC3_BTN4_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN4_RECT_Y) && (p.y < TFT_SC3_BTN4_RECT_Y + TFT_SC3_BTN4_RECT_YLEN))
     {
       // EDIT pressed
-
+      MACHINE_STATE.prev_screen_id = 3;
+      MACHINE_STATE.screen_id = 5;
+      tft_draw_sckey();
     }
 
     else if ((p.x > TFT_SC3_BTN5_RECT_X) && (p.x < TFT_SC3_BTN5_RECT_X + TFT_SC3_BTN5_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN5_RECT_Y) && (p.y < TFT_SC3_BTN5_RECT_Y + TFT_SC3_BTN5_RECT_YLEN))
     {
       // TEST pressed
-
+      sc3_run_test();
     }
 
     else if ((p.x > TFT_SC3_BTN6_RECT_X) && (p.x < TFT_SC3_BTN6_RECT_X + TFT_SC3_BTN6_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN6_RECT_Y) && (p.y < TFT_SC3_BTN6_RECT_Y + TFT_SC3_BTN6_RECT_YLEN))
     {
       // Seconds++ pressed
-
+      sc3_inc_sec();
     }
 
     else if ((p.x > TFT_SC3_BTN7_RECT_X) && (p.x < TFT_SC3_BTN7_RECT_X + TFT_SC3_BTN7_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN7_RECT_Y) && (p.y < TFT_SC3_BTN7_RECT_Y + TFT_SC3_BTN7_RECT_YLEN))
     {
       // Seconds-- pressed
-
+      sc3_dec_sec();
     }
 
     else if ((p.x > TFT_SC3_BTN8_RECT_X) && (p.x < TFT_SC3_BTN8_RECT_X + TFT_SC3_BTN8_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN8_RECT_Y) && (p.y < TFT_SC3_BTN8_RECT_Y + TFT_SC3_BTN8_RECT_YLEN))
     {
       // miliSeconds++ pressed
-
+      sc3_inc_msec();
     }
 
     else if ((p.x > TFT_SC3_BTN9_RECT_X) && (p.x < TFT_SC3_BTN9_RECT_X + TFT_SC3_BTN9_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN9_RECT_Y) && (p.y < TFT_SC3_BTN9_RECT_Y + TFT_SC3_BTN9_RECT_YLEN))
     {
       // miliSeconds-- pressed
-
+      sc3_dec_msec();
     }
   }
 
@@ -249,7 +256,47 @@ void task_touch(void)
 
   else if (MACHINE_STATE.screen_id == 5)
   {
+    if ((p.x > TFT_SCKEY_BTN5_RECT_X) && (p.x < TFT_SCKEY_BTN5_RECT_X + TFT_SCKEY_BTN5_RECT_XLEN) &&
+        (p.y > TFT_SCKEY_BTN5_RECT_Y) && (p.y < TFT_SCKEY_BTN5_RECT_Y + TFT_SCKEY_BTN5_RECT_YLEN))
+    {
+      // SPACE pressed
+      sc5_add_space();
+    }
+    else if ((p.x > TFT_SCKEY_BTN6_RECT_X) && (p.x < TFT_SCKEY_BTN6_RECT_X + TFT_SCKEY_BTN6_RECT_XLEN) &&
+             (p.y > TFT_SCKEY_BTN6_RECT_Y) && (p.y < TFT_SCKEY_BTN6_RECT_Y + TFT_SCKEY_BTN6_RECT_YLEN))
+    {
+      // CLEAR pressed
+      memcpy(SC5_STATE.textbox, "", 20);
+      sc5_clear_textbox();
+    }
+    else if ((p.x > TFT_SCKEY_BTN7_RECT_X) && (p.x < TFT_SCKEY_BTN7_RECT_X + TFT_SCKEY_BTN7_RECT_XLEN) &&
+             (p.y > TFT_SCKEY_BTN7_RECT_Y) && (p.y < TFT_SCKEY_BTN7_RECT_Y + TFT_SCKEY_BTN7_RECT_YLEN))
+    {
+      // OK pressed
+      if (memcmp(SC5_STATE.textbox, "", 1) != 0)
+      {
+        memcpy(SC3_STATE.casename, SC5_STATE.textbox, 20);
+      }
+      MACHINE_STATE.prev_screen_id = 5;
+      MACHINE_STATE.screen_id = 3;
+      tft_draw_sc3();
+    }
+    else
+    {
 
+      for (int row = 0; row < TFT_SCKEY_BTN_ROWS; row++)
+      {
+        for (int col = 0; col < TFT_SCKEY_BTN_COLUMNS; col++)
+        {
+          if (row == 2 && (col == 1 || col == 2 || col == 3 || col == 4)) continue;
+          if ((p.x > TFT_SCKEY_BTN_RECT_X + (col * TFT_SCKEY_BTN_GAP_X)) && (p.x < TFT_SCKEY_BTN_RECT_X + (col * TFT_SCKEY_BTN_GAP_X) + TFT_SCKEY_BTN1_RECT_XLEN) &&
+              (p.y > TFT_SCKEY_BTN_RECT_Y + (row * TFT_SCKEY_BTN_GAP_Y)) && (p.y < TFT_SCKEY_BTN_RECT_Y + (row * TFT_SCKEY_BTN_GAP_Y) + TFT_SCKEY_BTN1_RECT_YLEN))
+          {
+            sc5_update_textbox(row, col);
+          }
+        }
+      }
+    }
   }
 
   else if (MACHINE_STATE.screen_id == 6)

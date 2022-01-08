@@ -44,6 +44,15 @@ struct
 {
   int16_t count;
 } SC2_STATE;
+struct
+{
+  char casename[20];        /*!< New case name to be added*/
+} SC3_STATE;
+struct
+{
+  char textbox[20];         /*!< Case name data holder*/
+  uint8_t keyboard_page;    /*!< Current keybpard screen page */
+} SC5_STATE;
 
 void setup()
 {

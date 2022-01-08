@@ -18,6 +18,51 @@ void sc2_draw_count(void)
 
 }
 
+void sc3_add_case(void)
+{
+
+}
+
+void sc3_run_test(void)
+{
+
+}
+
+void sc3_inc_sec(void)
+{
+
+}
+
+void sc3_dec_sec(void)
+{
+
+}
+
+void sc3_inc_msec(void)
+{
+
+}
+
+void sc3_dec_msec(void)
+{
+
+}
+
+void sc5_add_space(void)
+{
+
+}
+
+void sc5_clear_textbox(void)
+{
+
+}
+
+void sc5_update_textbox(int row, int col)
+{
+
+}
+
 void sc8_delete_case(uint8_t case_id)
 {
 
