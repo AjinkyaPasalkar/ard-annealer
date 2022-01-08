@@ -46,11 +46,16 @@ struct
 } SC2_STATE;
 struct
 {
-  char casename[20];        /*!< New case name to be added*/
+  char casename[20];        /*!< New case name to be added */
 } SC3_STATE;
 struct
 {
-  char textbox[20];         /*!< Case name data holder*/
+  int8_t sec;             /*!< New case seconds */
+  int8_t msec;            /*!< New case miliseconds */
+}SC4_STATE;
+struct
+{
+  char textbox[20];         /*!< Case name data holder */
   uint8_t keyboard_page;    /*!< Current keybpard screen page */
 } SC5_STATE;
 

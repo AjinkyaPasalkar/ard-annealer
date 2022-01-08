@@ -211,46 +211,78 @@ void task_touch(void)
         (p.y > TFT_SC4_BTN1_RECT_Y) && (p.y < TFT_SC4_BTN1_RECT_Y + TFT_SC4_BTN1_RECT_YLEN))
     {
       // STOP pressed
+      MACHINE_STATE.prev_screen_id = 4;
+      MACHINE_STATE.screen_id = 8;
+      tft_draw_sc8();
     }
-
     else if ((p.x > TFT_SC4_BTN2_RECT_X) && (p.x < TFT_SC4_BTN2_RECT_X + TFT_SC4_BTN2_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN2_RECT_Y) && (p.y < TFT_SC4_BTN2_RECT_Y + TFT_SC4_BTN2_RECT_YLEN))
     {
       // PAUSE pressed
+      sc4_pause_annealing();
     }
-
     else if ((p.x > TFT_SC4_BTN4_RECT_X) && (p.x < TFT_SC4_BTN4_RECT_X + TFT_SC4_BTN4_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN4_RECT_Y) && (p.y < TFT_SC4_BTN4_RECT_Y + TFT_SC4_BTN4_RECT_YLEN))
     {
       // SAVE pressed
+      sc4_update_case();
     }
-
     else if ((p.x > TFT_SC4_BTN6_RECT_X) && (p.x < TFT_SC4_BTN6_RECT_X + TFT_SC4_BTN6_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN6_RECT_Y) && (p.y < TFT_SC4_BTN6_RECT_Y + TFT_SC4_BTN6_RECT_YLEN))
     {
       // Seconds++ pressed
-
+      if (SC4_STATE.sec < 99)
+      {
+        SC4_STATE.sec += 1;
+      }
+      else
+      {
+        SC4_STATE.sec = 0;
+      }
+      sc4_update_time();
     }
-
     else if ((p.x > TFT_SC4_BTN7_RECT_X) && (p.x < TFT_SC4_BTN7_RECT_X + TFT_SC4_BTN7_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN7_RECT_Y) && (p.y < TFT_SC4_BTN7_RECT_Y + TFT_SC4_BTN7_RECT_YLEN))
     {
       // Seconds-- pressed
-
+      if (SC4_STATE.sec > 0)
+      {
+        SC4_STATE.sec -= 1;
+      }
+      else
+      {
+        SC4_STATE.sec = 99;
+      }
+      sc4_update_time();
     }
 
     else if ((p.x > TFT_SC4_BTN8_RECT_X) && (p.x < TFT_SC4_BTN8_RECT_X + TFT_SC4_BTN8_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN8_RECT_Y) && (p.y < TFT_SC4_BTN8_RECT_Y + TFT_SC4_BTN8_RECT_YLEN))
     {
       // miliSeconds++ pressed
-
+      if (SC4_STATE.msec < 9)
+      {
+        SC4_STATE.msec += 1;
+      }
+      else
+      {
+        SC4_STATE.msec = 0;
+      }
+      sc4_update_time();
     }
-
     else if ((p.x > TFT_SC4_BTN9_RECT_X) && (p.x < TFT_SC4_BTN9_RECT_X + TFT_SC4_BTN9_RECT_XLEN) &&
              (p.y > TFT_SC4_BTN9_RECT_Y) && (p.y < TFT_SC4_BTN9_RECT_Y + TFT_SC4_BTN9_RECT_YLEN))
     {
       // miliSeconds-- pressed
-
+      if (SC4_STATE.msec > 0)
+      {
+        SC4_STATE.msec -= 1;
+      }
+      else
+      {
+        SC4_STATE.msec = 9;
+      }
+      sc4_update_time();
     }
   }
 

@@ -48,6 +48,31 @@ void sc3_dec_msec(void)
 
 }
 
+void sc4_pause_annealing(void)
+{
+  // if paused
+  // let current annealing go complete
+  // change pause -> start
+
+  // else
+  // change start -> pause
+  // start annealing
+}
+
+void sc4_update_case(void)
+{
+  // if save button enabled
+  // update time of current case
+  // make save button disabled
+}
+
+void sc4_update_time(void)
+{
+  // erase sec msec times
+  // draw sec time
+  // draw msec time
+}
+
 void sc5_add_space(void)
 {
 
