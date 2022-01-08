@@ -52,7 +52,7 @@ void sc4_pause_annealing(void)
 {
   tft.setFont(&TFT_SC4_BTN2_TXT_FONT);
   tft.setTextSize(1);
-  
+
   if (MACHINE_STATE.ann_state = 2)
   {
     // write pause in bg color
@@ -96,10 +96,29 @@ void sc4_update_case(void)
 
 void sc4_update_time(void)
 {
+  int16_t  x1, y1;
+  uint16_t w, h;
+
   // erase sec msec times
-  // draw sec time
-  // draw msec time
-  // enable save button if not already
+  tft.getTextBounds("00", TFT_SC4_TXT1_TXT_X, TFT_SC4_TXT1_TXT_Y, &x1, &y1, &w, &h);
+  tft.fillRect(x1, y1, w, h, ILI9341_BLACK);
+  tft.getTextBounds("0", TFT_SC4_TXT2_TXT_X, TFT_SC4_TXT2_TXT_Y, &x1, &y1, &w, &h);
+  tft.fillRect(x1, y1, w, h, ILI9341_BLACK);
+
+  // draw sec, msec time
+  tft.setFont(&TFT_SC4_BTN2_TXT_FONT);
+  tft.setTextSize(1);
+
+  tft.setTextColor(TFT_SC4_TXT1_TXT_CLR);
+  tft.setCursor(TFT_SC4_TXT1_TXT_X, TFT_SC4_TXT1_TXT_Y);
+  tft.println(SC4_STATE.sec);
+
+  tft.setTextColor(TFT_SC4_TXT2_TXT_CLR);
+  tft.setCursor(TFT_SC4_TXT2_TXT_X, TFT_SC4_TXT2_TXT_Y);
+  tft.println(SC4_STATE.msec);
+
+  // enable save button
+  SC4_STATE.save_enabled = true;
 }
 
 void sc5_add_space(void)

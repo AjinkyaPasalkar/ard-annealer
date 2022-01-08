@@ -13,7 +13,7 @@
 #define TFT_SC4_TITLE_TXT_X       10
 #define TFT_SC4_TITLE_TXT_Y       30
 
-// Text 1
+// Text 1 Seconds
 #define TFT_SC4_TXT1_TXT        "00"
 #define TFT_SC4_TXT1_TXT_CLR    ILI9341_WHITE
 #define TFT_SC4_TXT1_TXT_FONT   FreeSerifBold18pt7b
@@ -21,7 +21,7 @@
 #define TFT_SC4_TXT1_TXT_X      28
 #define TFT_SC4_TXT1_TXT_Y      134
 
-// Text 2
+// Text 2 milliseconds
 #define TFT_SC4_TXT2_TXT        "0"
 #define TFT_SC4_TXT2_TXT_CLR    ILI9341_WHITE
 #define TFT_SC4_TXT2_TXT_FONT   FreeSerifBold18pt7b
