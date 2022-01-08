@@ -50,20 +50,48 @@ void sc3_dec_msec(void)
 
 void sc4_pause_annealing(void)
 {
-  // if paused
-  // let current annealing go complete
-  // change pause -> start
+  tft.setFont(&TFT_SC4_BTN2_TXT_FONT);
+  tft.setTextSize(1);
+  
+  if (MACHINE_STATE.ann_state = 2)
+  {
+    // write pause in bg color
+    tft.setTextColor(TFT_SC4_BTN2_FILL_CLR);
+    tft.setCursor(TFT_SC4_BTN2_TXT_X, TFT_SC4_BTN2_TXT_Y);
+    tft.println(TFT_SC4_BTN2_TXT);
 
-  // else
-  // change start -> pause
-  // start annealing
+    // write start in main color
+    tft.setTextColor(TFT_SC4_BTN2_TXT_CLR);
+    tft.setCursor(TFT_SC4_BTN2_TXT_X, TFT_SC4_BTN2_TXT_Y);
+    tft.println("START");
+
+    // pause annealing
+    MACHINE_STATE.ann_state = 2;
+  }
+  else
+  {
+    // write start in bg color
+    tft.setTextColor(TFT_SC4_BTN2_FILL_CLR);
+    tft.setCursor(TFT_SC4_BTN2_TXT_X, TFT_SC4_BTN2_TXT_Y);
+    tft.println("start");
+
+    // write pause in main color
+    tft.setTextColor(TFT_SC4_BTN2_TXT_CLR);
+    tft.setCursor(TFT_SC4_BTN2_TXT_X, TFT_SC4_BTN2_TXT_Y);
+    tft.println(TFT_SC4_BTN2_TXT);
+
+    // Start annealing
+    MACHINE_STATE.ann_state = 1;
+  }
 }
 
 void sc4_update_case(void)
 {
-  // if save button enabled
-  // update time of current case
-  // make save button disabled
+  if (SC4_STATE.save_enabled)
+  {
+    // update time of current case in EEPROM
+    SC4_STATE.save_enabled = false;
+  }
 }
 
 void sc4_update_time(void)
@@ -71,6 +99,7 @@ void sc4_update_time(void)
   // erase sec msec times
   // draw sec time
   // draw msec time
+  // enable save button if not already
 }
 
 void sc5_add_space(void)

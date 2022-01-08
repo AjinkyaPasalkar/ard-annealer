@@ -33,7 +33,7 @@ struct
   uint8_t   case_id;        /*!< Selected case id */
   char     *case_name;      /*!< Selected case name */
   uint16_t  case_time;      /*!< Selected case time. (ms/100) */
-  uint8_t   ann_state;      /*!< Annealing state. Stopped Running Paused */
+  uint8_t   ann_state;      /*!< Annealing state. 0-Stopped 1-Running 2-Paused */
 } MACHINE_STATE;
 struct
 {
@@ -50,8 +50,9 @@ struct
 } SC3_STATE;
 struct
 {
-  int8_t sec;             /*!< New case seconds */
-  int8_t msec;            /*!< New case miliseconds */
+  int8_t sec;             /*!< Current case seconds */
+  int8_t msec;            /*!< Current case miliseconds */
+  bool save_enabled;      /*!< Enabled if current case sec msec is changed */
 }SC4_STATE;
 struct
 {
