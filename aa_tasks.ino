@@ -292,22 +292,22 @@ void task_touch(void)
         (p.y > TFT_SCKEY_BTN5_RECT_Y) && (p.y < TFT_SCKEY_BTN5_RECT_Y + TFT_SCKEY_BTN5_RECT_YLEN))
     {
       // SPACE pressed
-      sc5_add_space();
+      strcat(SC5_STATE.textbox, " ");
     }
     else if ((p.x > TFT_SCKEY_BTN6_RECT_X) && (p.x < TFT_SCKEY_BTN6_RECT_X + TFT_SCKEY_BTN6_RECT_XLEN) &&
              (p.y > TFT_SCKEY_BTN6_RECT_Y) && (p.y < TFT_SCKEY_BTN6_RECT_Y + TFT_SCKEY_BTN6_RECT_YLEN))
     {
       // CLEAR pressed
-      memcpy(SC5_STATE.textbox, "", 20);
+      strcpy(SC5_STATE.textbox, "");
       sc5_clear_textbox();
     }
     else if ((p.x > TFT_SCKEY_BTN7_RECT_X) && (p.x < TFT_SCKEY_BTN7_RECT_X + TFT_SCKEY_BTN7_RECT_XLEN) &&
              (p.y > TFT_SCKEY_BTN7_RECT_Y) && (p.y < TFT_SCKEY_BTN7_RECT_Y + TFT_SCKEY_BTN7_RECT_YLEN))
     {
       // OK pressed
-      if (memcmp(SC5_STATE.textbox, "", 1) != 0)
+      if (strcmp(SC5_STATE.textbox, "") != 0)
       {
-        memcpy(SC3_STATE.casename, SC5_STATE.textbox, 20);
+        strcpy(SC3_STATE.casename, SC5_STATE.textbox);
       }
       MACHINE_STATE.prev_screen_id = 5;
       MACHINE_STATE.screen_id = 3;

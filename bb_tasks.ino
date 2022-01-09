@@ -121,11 +121,6 @@ void sc4_update_time(void)
   SC4_STATE.save_enabled = true;
 }
 
-void sc5_add_space(void)
-{
-
-}
-
 void sc5_clear_textbox(void)
 {
 
