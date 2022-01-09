@@ -123,7 +123,13 @@ void sc4_update_time(void)
 
 void sc5_clear_textbox(void)
 {
-
+  strcpy(SC5_STATE.textbox, "");
+  tft.fillRect(
+    TFT_SCKEY_TXT1_RECT_X + 1,
+    TFT_SCKEY_TXT1_RECT_Y + 1,
+    TFT_SCKEY_TXT1_RECT_XLEN - 2,
+    TFT_SCKEY_TXT1_RECT_YLEN - 2,
+    TFT_SCKEY_TXT1_FILL_CLR);
 }
 
 void sc5_update_textbox(int row, int col)

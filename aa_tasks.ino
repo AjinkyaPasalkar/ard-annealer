@@ -298,7 +298,6 @@ void task_touch(void)
              (p.y > TFT_SCKEY_BTN6_RECT_Y) && (p.y < TFT_SCKEY_BTN6_RECT_Y + TFT_SCKEY_BTN6_RECT_YLEN))
     {
       // CLEAR pressed
-      strcpy(SC5_STATE.textbox, "");
       sc5_clear_textbox();
     }
     else if ((p.x > TFT_SCKEY_BTN7_RECT_X) && (p.x < TFT_SCKEY_BTN7_RECT_X + TFT_SCKEY_BTN7_RECT_XLEN) &&
