@@ -4,6 +4,7 @@
 #include <Fonts/FreeSerifBold18pt7b.h>
 #include <XPT2046_Touchscreen.h>
 #include <Servo.h>
+#include <EEPROM.h>
 #include "PIN.h"
 #include "screen.h"
 

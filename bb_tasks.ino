@@ -1,6 +1,23 @@
 char* sc1_get_selected_case_name(void)
 {
-
+  // 1 byte id, 1 byte sec, 1 byte msec, 20 byte name
+  uint8_t id = SC1_STATE.selected_id;
+  char casename[20] = {0};
+  
+  // Search id of all 20 cases
+  for (int i = 0; i < 20; i++)
+  {
+    if (EEPROM[i*23] == id)
+    {
+      for (int j = 0; j < 20; j++)
+      {
+        // Copy 20 characters of casename to variable
+        casename[j] = EEPROM[i*23 + 3 + j];
+      }
+      break;
+    }
+  }
+  return casename;
 }
 
 uint16_t sc1_get_selected_case_time(void)
