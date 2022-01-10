@@ -15,7 +15,8 @@ void task_touch(void)
       // SELECT pressed
       MACHINE_STATE.case_id   = SC1_STATE.selected_id;
       MACHINE_STATE.case_name = sc1_get_selected_case_name();
-      MACHINE_STATE.case_time = sc1_get_selected_case_time();
+      MACHINE_STATE.case_time_sec = sc1_get_selected_case_time_sec();
+      MACHINE_STATE.case_time_msec = sc1_get_selected_case_time_msec();
       tft_draw_sc2();
       MACHINE_STATE.screen_id = 2;
     }

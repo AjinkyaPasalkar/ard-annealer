@@ -20,7 +20,12 @@ char* sc1_get_selected_case_name(void)
   return casename;
 }
 
-uint16_t sc1_get_selected_case_time(void)
+uint8_t sc1_get_selected_case_time_sec(void)
+{
+
+}
+
+uint8_t sc1_get_selected_case_time_msec(void)
 {
 
 }

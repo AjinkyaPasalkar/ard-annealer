@@ -33,7 +33,8 @@ struct
   int16_t   total_cases;    /*!< Total number of cases to be completed */
   uint8_t   case_id;        /*!< Selected case id */
   char     *case_name;      /*!< Selected case name */
-  uint16_t  case_time;      /*!< Selected case time. (ms/100) */
+  uint8_t   case_time_sec;  /*!< Selected case time seconds */
+  uint8_t   case_time_msec; /*!< Selected case time milliseconds */
   uint8_t   ann_state;      /*!< Annealing state. 0-Stopped 1-Running 2-Paused */
 } MACHINE_STATE;
 struct
@@ -54,7 +55,7 @@ struct
   int8_t sec;             /*!< Current case seconds */
   int8_t msec;            /*!< Current case miliseconds */
   bool save_enabled;      /*!< Enabled if current case sec msec is changed */
-}SC4_STATE;
+} SC4_STATE;
 struct
 {
   char textbox[20];         /*!< Case name data holder */
