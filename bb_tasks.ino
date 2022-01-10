@@ -111,8 +111,18 @@ void sc4_update_case(void)
 {
   if (SC4_STATE.save_enabled)
   {
-    // update time of current case in EEPROM
     SC4_STATE.save_enabled = false;
+
+    // update time of current case in EEPROM
+    for (int i = 0; i < 20; i++)
+    {
+      if (MACHINE_STATE.case_id == EEPROM[i * 23])
+      {
+        EEPROM[i * 23 + 1] = SC4_STATE.sec;
+        EEPROM[i * 23 + 2] = SC4_STATE.msec;
+        break;
+      }
+    }
   }
 }
 
@@ -138,6 +148,10 @@ void sc4_update_time(void)
   tft.setTextColor(TFT_SC4_TXT2_TXT_CLR);
   tft.setCursor(TFT_SC4_TXT2_TXT_X, TFT_SC4_TXT2_TXT_Y);
   tft.println(SC4_STATE.msec);
+
+  // update global struct
+  MACHINE_STATE.case_time_sec = SC4_STATE.sec;
+  MACHINE_STATE.case_time_msec = SC4_STATE.msec;
 
   // enable save button
   SC4_STATE.save_enabled = true;
