@@ -176,15 +176,19 @@ void sc8_delete_case(uint8_t case_id)
 
 void sc8_stop_annealing(void)
 {
-
+  MACHINE_STATE.ann_state = 0;
 }
 
 void sc6_repeat_annealing(void)
 {
+  // !Set count back to full
 
+  // Start annealing
+  MACHINE_STATE.ann_state = 1;
 }
 
 void sc7_retry_annealing(void)
 {
-
+  // Start annealing
+  MACHINE_STATE.ann_state = 1;
 }
