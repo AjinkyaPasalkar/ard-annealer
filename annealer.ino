@@ -31,7 +31,7 @@ struct
   uint32_t  servo_time;     /*!< Servo 90 time. ms */
   uint16_t  count;          /*!< Number of cases completed */
   int16_t   total_cases;    /*!< Total number of cases to be completed */
-  uint8_t   case_id;        /*!< Selected case id */
+  int8_t    case_id;        /*!< Selected case id */
   char     *case_name;      /*!< Selected case name */
   uint8_t   case_time_sec;  /*!< Selected case time seconds */
   uint8_t   case_time_msec; /*!< Selected case time milliseconds */
@@ -39,7 +39,7 @@ struct
 } MACHINE_STATE;
 struct
 {
-  uint8_t selected_id;
+  int8_t  selected_id;
   uint8_t max_cases;
 } SC1_STATE;
 struct

@@ -1,7 +1,6 @@
-char* sc1_get_selected_case_name(void)
+char* sc1_get_selected_case_name(int8_t id)
 {
   // 1 byte id, 1 byte sec, 1 byte msec, 20 byte name
-  uint8_t id = SC1_STATE.selected_id;
   char casename[20] = {0};
 
   // Search id of all 20 cases
@@ -212,14 +211,14 @@ void sc5_update_textbox(int row, int col)
 
 }
 
-void sc8_delete_case(uint8_t case_id)
+void sc8_delete_case(int8_t case_id)
 {
   // 1 byte id, 1 byte sec, 1 byte msec, 20 byte name
 
   // Write 0xff as id for case_id
   for (int i = 0; i < 20; i++)
   {
-    uint8_t eeprom_id = EEPROM[i * 23];
+    int8_t eeprom_id = EEPROM[i * 23];
     if (eeprom_id == case_id)
     {
       // Erase case ID
