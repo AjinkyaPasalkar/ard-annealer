@@ -726,6 +726,8 @@ void tft_draw_sckey(void)
   // Bottom row buttons
   tft_draw_arrow_button(TFT_SCKEY_BTN3_ARROW_X, TFT_SCKEY_BTN3_ARROW_Y, TFT_SCKEY_BTN3_ARROW_CLR, TFT_SCKEY_BTN3_ARROW_DIR);
   tft_draw_arrow_button(TFT_SCKEY_BTN4_ARROW_X, TFT_SCKEY_BTN4_ARROW_Y, TFT_SCKEY_BTN4_ARROW_CLR, TFT_SCKEY_BTN4_ARROW_DIR);
+
+  sc5_draw_keys(SC5_STATE.keyboard_page);
 }
 
 /*!

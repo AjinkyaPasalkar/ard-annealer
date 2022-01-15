@@ -288,8 +288,84 @@ void sc5_clear_textbox(void)
 
 void sc5_update_textbox(int row, int col)
 {
+  char key[2] = {0};
 
+  if (row == 2)
+  {
+    if (col == 0)
+    {
+      // < pressed
+      if (SC5_STATE.keyboard_page <= 0) SC5_STATE.keyboard_page = 2;
+      else SC5_STATE.keyboard_page -= 1;
+      sc5_draw_keys(SC5_STATE.keyboard_page);
+    }
+    else if (col == 5)
+    {
+      // > pressed
+      if (SC5_STATE.keyboard_page >= 2) SC5_STATE.keyboard_page = 0;
+      else SC5_STATE.keyboard_page += 1;
+      sc5_draw_keys(SC5_STATE.keyboard_page);
+    }
+    return;
+  }
+
+  else if (row < 2)
+  {
+    key[0] = 'A' + (col + row * 6 + SC5_STATE.keyboard_page * 12);
+    if (key[0] > 'Z')
+    {
+      key[0] = key[0] - 'Z' + '0' - 1;
+    }
+    strcat(SC5_STATE.textbox, key);
+
+    tft.setFont(&TFT_SCKEY_TXT1_TXT_FONT);
+    tft.setTextSize(1);
+    tft.setTextColor(TFT_SCKEY_TXT1_TXT_CLR);
+    tft.setCursor(TFT_SCKEY_TXT1_TXT_X, TFT_SCKEY_TXT1_TXT_Y);
+    tft.println(SC5_STATE.textbox);
+  }
 }
+
+void sc5_draw_keys(uint8_t keyboard_page)
+{
+  char key[2] = {0};
+  SCREEN_TEXT_Params textParams;
+
+  for (int row = 0; row < TFT_SCKEY_BTN_ROWS - 1; row++)
+  {
+    for (int col = 0; col < TFT_SCKEY_BTN_COLUMNS; col++)
+    {
+      tft_screen_text_params_init(&textParams);
+
+      key[0] = 'A' + (col + row * 6 + keyboard_page * 12);
+      if (key[0] > 'Z')
+      {
+        key[0] = key[0] - 'Z' + '0' - 1;
+      }
+
+      textParams.text_x           = TFT_SCKEY_BTN_RECT_X + (col * TFT_SCKEY_BTN_GAP_X) + TFT_SCKEY_BTN_TXT_X_OFFSET;
+      textParams.text_y           = TFT_SCKEY_BTN_RECT_Y + (row * TFT_SCKEY_BTN_GAP_Y) + TFT_SCKEY_BTN_TXT_Y_OFFSET;
+      textParams.text             = key;
+      textParams.text_font        = &TFT_SCKEY_BTN_TXT_FONT;
+
+      textParams.rect_x           = TFT_SCKEY_BTN_RECT_X + (col * TFT_SCKEY_BTN_GAP_X);
+      textParams.rect_y           = TFT_SCKEY_BTN_RECT_Y + (row * TFT_SCKEY_BTN_GAP_Y);
+      textParams.rect_x_len       = TFT_SCKEY_BTN1_RECT_XLEN;
+      textParams.rect_y_len       = TFT_SCKEY_BTN1_RECT_YLEN;
+      textParams.rect_thickness   = TFT_SCKEY_BTN_RECT_THICK;
+
+      textParams.fill_en          = TFT_SCKEY_BTN_FILL_EN;
+      textParams.round_en         = TFT_SCKEY_BTN_ROUND_EN;
+
+      textParams.fill_color       = TFT_SCKEY_BTN_FILL_CLR;
+      textParams.rect_color       = TFT_SCKEY_BTN_RECT_CLR;
+      textParams.text_color       = TFT_SCKEY_BTN_TXT_CLR;
+
+      tft_draw_text(textParams);
+    }
+  }
+}
+
 
 void sc8_delete_case(int8_t case_id)
 {
