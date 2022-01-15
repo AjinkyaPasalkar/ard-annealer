@@ -162,7 +162,6 @@ void task_touch(void)
       MACHINE_STATE.screen_id = 1;
       tft_draw_sc1();
     }
-
     else if ((p.x > TFT_SC3_BTN4_RECT_X) && (p.x < TFT_SC3_BTN4_RECT_X + TFT_SC3_BTN4_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN4_RECT_Y) && (p.y < TFT_SC3_BTN4_RECT_Y + TFT_SC3_BTN4_RECT_YLEN))
     {
@@ -171,40 +170,68 @@ void task_touch(void)
       MACHINE_STATE.screen_id = 5;
       tft_draw_sckey();
     }
-
     else if ((p.x > TFT_SC3_BTN5_RECT_X) && (p.x < TFT_SC3_BTN5_RECT_X + TFT_SC3_BTN5_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN5_RECT_Y) && (p.y < TFT_SC3_BTN5_RECT_Y + TFT_SC3_BTN5_RECT_YLEN))
     {
       // TEST pressed
       sc3_run_test();
     }
-
     else if ((p.x > TFT_SC3_BTN6_RECT_X) && (p.x < TFT_SC3_BTN6_RECT_X + TFT_SC3_BTN6_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN6_RECT_Y) && (p.y < TFT_SC3_BTN6_RECT_Y + TFT_SC3_BTN6_RECT_YLEN))
     {
       // Seconds++ pressed
-      sc3_inc_sec();
+      if (SC3_STATE.sec < 99)
+      {
+        SC3_STATE.sec += 1;
+      }
+      else
+      {
+        SC3_STATE.sec = 0;
+      }
+      sc3_update_time();
     }
-
     else if ((p.x > TFT_SC3_BTN7_RECT_X) && (p.x < TFT_SC3_BTN7_RECT_X + TFT_SC3_BTN7_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN7_RECT_Y) && (p.y < TFT_SC3_BTN7_RECT_Y + TFT_SC3_BTN7_RECT_YLEN))
     {
       // Seconds-- pressed
-      sc3_dec_sec();
+      if (SC3_STATE.sec > 0)
+      {
+        SC3_STATE.sec -= 1;
+      }
+      else
+      {
+        SC3_STATE.sec = 99;
+      }
+      sc3_update_time();
     }
-
     else if ((p.x > TFT_SC3_BTN8_RECT_X) && (p.x < TFT_SC3_BTN8_RECT_X + TFT_SC3_BTN8_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN8_RECT_Y) && (p.y < TFT_SC3_BTN8_RECT_Y + TFT_SC3_BTN8_RECT_YLEN))
     {
       // miliSeconds++ pressed
-      sc3_inc_msec();
+      if (SC3_STATE.msec < 9)
+      {
+        SC3_STATE.msec += 1;
+      }
+      else
+      {
+        SC3_STATE.msec = 0;
+      }
+      sc3_update_time();
     }
 
     else if ((p.x > TFT_SC3_BTN9_RECT_X) && (p.x < TFT_SC3_BTN9_RECT_X + TFT_SC3_BTN9_RECT_XLEN) &&
              (p.y > TFT_SC3_BTN9_RECT_Y) && (p.y < TFT_SC3_BTN9_RECT_Y + TFT_SC3_BTN9_RECT_YLEN))
     {
       // miliSeconds-- pressed
-      sc3_dec_msec();
+      if (SC3_STATE.msec > 0)
+      {
+        SC3_STATE.msec -= 1;
+      }
+      else
+      {
+        SC3_STATE.msec = 9;
+      }
+      sc3_update_time();
     }
   }
 

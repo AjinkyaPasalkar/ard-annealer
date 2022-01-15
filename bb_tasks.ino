@@ -143,24 +143,28 @@ void sc3_run_test(void)
 
 }
 
-void sc3_inc_sec(void)
+void sc3_update_time(void)
 {
+  int16_t  x1, y1;
+  uint16_t w, h;
 
-}
+  // erase sec msec times
+  tft.getTextBounds("00", TFT_SC3_TXT1_TXT_X, TFT_SC3_TXT1_TXT_Y, &x1, &y1, &w, &h);
+  tft.fillRect(x1, y1, w, h, ILI9341_BLACK);
+  tft.getTextBounds("0", TFT_SC3_TXT2_TXT_X, TFT_SC3_TXT2_TXT_Y, &x1, &y1, &w, &h);
+  tft.fillRect(x1, y1, w, h, ILI9341_BLACK);
 
-void sc3_dec_sec(void)
-{
+  // draw sec, msec time
+  tft.setFont(&TFT_SC3_TXT1_TXT_FONT);
+  tft.setTextSize(1);
 
-}
+  tft.setTextColor(TFT_SC3_TXT1_TXT_CLR);
+  tft.setCursor(TFT_SC3_TXT1_TXT_X, TFT_SC3_TXT1_TXT_Y);
+  tft.println(SC3_STATE.sec);
 
-void sc3_inc_msec(void)
-{
-
-}
-
-void sc3_dec_msec(void)
-{
-
+  tft.setTextColor(TFT_SC3_TXT2_TXT_CLR);
+  tft.setCursor(TFT_SC3_TXT2_TXT_X, TFT_SC3_TXT2_TXT_Y);
+  tft.println(SC3_STATE.msec);
 }
 
 void sc4_pause_annealing(void)

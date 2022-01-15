@@ -49,6 +49,8 @@ struct
 struct
 {
   char casename[20];        /*!< New case name to be added */
+  int8_t sec;               /*!< Current case seconds */
+  int8_t msec;              /*!< Current case miliseconds */
 } SC3_STATE;
 struct
 {
