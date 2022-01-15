@@ -34,9 +34,9 @@ void task_touch(void)
              (p.y > TFT_SC1_BTN3_RECT_Y) && (p.y < TFT_SC1_BTN3_RECT_Y + TFT_SC1_BTN3_RECT_YLEN))
     {
       // UP pressed
-      if (SC1_STATE.selected_id <= 1)
+      if (SC1_STATE.selected_id <= 0)
       {
-        SC1_STATE.selected_id = 1;
+        SC1_STATE.selected_id = 0;
       }
       else
       {
@@ -48,9 +48,9 @@ void task_touch(void)
              (p.y > TFT_SC1_BTN4_RECT_Y) && (p.y < TFT_SC1_BTN4_RECT_Y + TFT_SC1_BTN4_RECT_YLEN))
     {
       // DOWN pressed
-      if (SC1_STATE.selected_id >= SC1_STATE.max_cases)
+      if (SC1_STATE.selected_id >= SC1_STATE.max_cases - 1)
       {
-        SC1_STATE.selected_id = SC1_STATE.max_cases;
+        SC1_STATE.selected_id = SC1_STATE.max_cases - 1;
       }
       else
       {
