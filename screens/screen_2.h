@@ -22,7 +22,7 @@
 #define TFT_SC2_TXT1_TXT_Y      65
 
 // Text 2
-#define TFT_SC2_TXT2_TXT        "Count: 123"
+#define TFT_SC2_TXT2_TXT        "Count: 000"
 #define TFT_SC2_TXT2_TXT_CLR    ILI9341_WHITE
 #define TFT_SC2_TXT2_TXT_FONT   FreeSerifBold12pt7b
 #define TFT_SC2_TXT2_TXT_SIZE   1

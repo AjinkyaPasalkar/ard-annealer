@@ -37,7 +37,20 @@ void sc1_draw_list(void)
 
 void sc2_draw_count(void)
 {
+  int16_t  x1, y1;
+  uint16_t w, h;
 
+  // erase previous count
+  tft.getTextBounds(TFT_SC2_TXT2_TXT, TFT_SC2_TXT2_TXT_X, TFT_SC2_TXT2_TXT_Y, &x1, &y1, &w, &h);
+  tft.fillRect(x1, y1, w, h, ILI9341_BLACK);
+
+  // draw new count
+  tft.setFont(&TFT_SC2_TXT2_TXT_FONT);
+  tft.setTextSize(1);
+  tft.setTextColor(TFT_SC2_TXT2_TXT_CLR);
+  tft.setCursor(TFT_SC2_TXT2_TXT_X, TFT_SC2_TXT2_TXT_Y);
+  tft.print("Count: ");
+  tft.println(SC2_STATE.count);
 }
 
 void sc3_add_case(void)
