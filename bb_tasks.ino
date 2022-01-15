@@ -22,12 +22,38 @@ char* sc1_get_selected_case_name(void)
 
 uint8_t sc1_get_selected_case_time_sec(void)
 {
+  // 1 byte id, 1 byte sec, 1 byte msec, 20 byte name
+  uint8_t id = SC1_STATE.selected_id;
+  uint8_t sec = 0;
 
+  // Search for id
+  for (int i = 0; i < 20; i++)
+  {
+    if (EEPROM[i * 23] == id)
+    {
+      sec = EEPROM[i * 23 + 1];
+      break;
+    }
+  }
+  return sec;
 }
 
 uint8_t sc1_get_selected_case_time_msec(void)
 {
+  // 1 byte id, 1 byte sec, 1 byte msec, 20 byte name
+  uint8_t id = SC1_STATE.selected_id;
+  uint8_t msec = 0;
 
+  // Search for id
+  for (int i = 0; i < 20; i++)
+  {
+    if (EEPROM[i * 23] == id)
+    {
+      msec = EEPROM[i * 23 + 1];
+      break;
+    }
+  }
+  return msec;
 }
 
 void sc1_draw_list(void)

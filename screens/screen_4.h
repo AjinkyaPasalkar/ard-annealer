@@ -27,7 +27,7 @@
 #define TFT_SC4_TXT2_TXT_FONT   FreeSerifBold18pt7b
 #define TFT_SC4_TXT2_TXT_SIZE   1
 #define TFT_SC4_TXT2_TXT_X      107
-#define TFT_SC4_TXT2_TXT_Y      134
+#define TFT_SC4_TXT2_TXT_Y      TFT_SC4_TXT1_TXT_Y
 
 // Button 1
 #define TFT_SC4_BTN1_TXT        "STOP"

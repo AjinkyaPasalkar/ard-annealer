@@ -17,16 +17,18 @@ void task_touch(void)
       MACHINE_STATE.case_name = sc1_get_selected_case_name();
       MACHINE_STATE.case_time_sec = sc1_get_selected_case_time_sec();
       MACHINE_STATE.case_time_msec = sc1_get_selected_case_time_msec();
-      tft_draw_sc2();
+      MACHINE_STATE.prev_screen_id = 1;
       MACHINE_STATE.screen_id = 2;
+      tft_draw_sc2();
     }
     else if ((p.x > TFT_SC1_BTN2_RECT_X) && (p.x < TFT_SC1_BTN2_RECT_X + TFT_SC1_BTN2_RECT_XLEN) &&
              (p.y > TFT_SC1_BTN2_RECT_Y) && (p.y < TFT_SC1_BTN2_RECT_Y + TFT_SC1_BTN2_RECT_YLEN))
     {
       // ADD pressed
       // Draw ADD-NEW-CASE screen and update MACHINE_STATE
-      tft_draw_sc3();
+      MACHINE_STATE.prev_screen_id = 1;
       MACHINE_STATE.screen_id = 3;
+      tft_draw_sc3();
     }
     else if ((p.x > TFT_SC1_BTN3_RECT_X) && (p.x < TFT_SC1_BTN3_RECT_X + TFT_SC1_BTN3_RECT_XLEN) &&
              (p.y > TFT_SC1_BTN3_RECT_Y) && (p.y < TFT_SC1_BTN3_RECT_Y + TFT_SC1_BTN3_RECT_YLEN))
