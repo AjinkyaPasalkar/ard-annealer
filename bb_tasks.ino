@@ -94,6 +94,27 @@ void sc1_draw_list(void)
   }
 }
 
+void sc2_draw_time(void)
+{
+  int16_t  x1, y1;
+  uint16_t w, h;
+
+  // erase previous time
+  tft.getTextBounds(TFT_SC2_TXT1_TXT, TFT_SC2_TXT1_TXT_X, TFT_SC2_TXT1_TXT_Y, &x1, &y1, &w, &h);
+  tft.fillRect(x1, y1, w, h, ILI9341_BLACK);
+
+  // draw new time
+  tft.setFont(&TFT_SC2_TXT1_TXT_FONT);
+  tft.setTextSize(1);
+  tft.setTextColor(TFT_SC2_TXT1_TXT_CLR);
+  tft.setCursor(TFT_SC2_TXT1_TXT_X, TFT_SC2_TXT1_TXT_Y);
+  tft.print("Time: ");
+  tft.print(MACHINE_STATE.case_time_sec);
+  tft.print(".");
+  tft.print(MACHINE_STATE.case_time_msec);
+  tft.print(" sec");
+}
+
 void sc2_draw_count(void)
 {
   int16_t  x1, y1;

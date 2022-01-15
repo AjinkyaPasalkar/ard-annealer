@@ -14,7 +14,7 @@
 #define TFT_SC2_TITLE_TXT_Y       30
 
 // Text 1
-#define TFT_SC2_TXT1_TXT        "Time: 15.5 sec"
+#define TFT_SC2_TXT1_TXT        "Time: 00.0 sec"
 #define TFT_SC2_TXT1_TXT_CLR    ILI9341_WHITE
 #define TFT_SC2_TXT1_TXT_FONT   FreeSerifBold12pt7b
 #define TFT_SC2_TXT1_TXT_SIZE   1
