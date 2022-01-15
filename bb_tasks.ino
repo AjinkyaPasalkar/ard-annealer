@@ -1,7 +1,7 @@
 char* sc1_get_selected_case_name(int8_t id)
 {
   // 1 byte id, 1 byte sec, 1 byte msec, 20 byte name
-  char casename[20] = {0};
+  static char casename[20] = {0};
 
   // Search id of all 20 cases
   for (int i = 0; i < 20; i++)
@@ -57,7 +57,41 @@ uint8_t sc1_get_selected_case_time_msec(void)
 
 void sc1_draw_list(void)
 {
+  char *casename;
 
+  // Erase table
+  tft.fillRect(10, 40, 260, 145, ILI9341_BLACK);
+
+  // Draw table
+  tft.drawRect(10, 40, 260, 145, ILI9341_WHITE);
+  tft.drawFastHLine(10, 88, 260, ILI9341_WHITE);
+  tft.drawFastHLine(10, 136, 260, ILI9341_WHITE);
+
+  // Draw text
+  tft.setFont(&TFT_SC1_TXT1_TXT_FONT);
+  tft.setTextSize(1);
+  tft.setTextColor(TFT_SC1_TXT1_TXT_CLR);
+
+  // Selected case
+  casename = sc1_get_selected_case_name(SC1_STATE.selected_id);
+  tft.setCursor(TFT_SC1_TXT1_TXT_X, TFT_SC1_TXT1_TXT_Y);
+  tft.println(casename);
+
+  if (SC1_STATE.selected_id > 0)
+  {
+    // Top case
+    casename = sc1_get_selected_case_name(SC1_STATE.selected_id - 1);
+    tft.setCursor(TFT_SC1_TXT2_TXT_X, TFT_SC1_TXT2_TXT_Y);
+    tft.println(casename);
+  }
+
+  if (SC1_STATE.selected_id < SC1_STATE.max_cases - 1)
+  {
+    // Bottom case
+    casename = sc1_get_selected_case_name(SC1_STATE.selected_id + 1);
+    tft.setCursor(TFT_SC1_TXT3_TXT_X, TFT_SC1_TXT3_TXT_Y);
+    tft.println(casename);
+  }
 }
 
 void sc2_draw_count(void)

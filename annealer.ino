@@ -40,7 +40,7 @@ struct
 struct
 {
   int8_t  selected_id;
-  uint8_t max_cases;
+  int8_t max_cases;
 } SC1_STATE;
 struct
 {

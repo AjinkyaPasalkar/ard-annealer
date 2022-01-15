@@ -90,19 +90,19 @@
 #define TFT_SC1_TXT1_TXT_CLR    ILI9341_WHITE
 #define TFT_SC1_TXT1_TXT_FONT   FreeSerifBold12pt7b
 #define TFT_SC1_TXT1_TXT_X      15
-#define TFT_SC1_TXT1_TXT_Y      45
+#define TFT_SC1_TXT1_TXT_Y      123
 
 // Text 2 - List Top 
 #define TFT_SC1_TXT2_TXT_CLR    TFT_SC1_TXT1_TXT_CLR
 #define TFT_SC1_TXT2_TXT_FONT   TFT_SC1_TXT1_TXT_FONT
 #define TFT_SC1_TXT2_TXT_X      TFT_SC1_TXT1_TXT_X
-#define TFT_SC1_TXT2_TXT_Y      93
+#define TFT_SC1_TXT2_TXT_Y      75
 
 // Text 3 - List Bottom
 #define TFT_SC1_TXT3_TXT_CLR    TFT_SC1_TXT1_TXT_CLR
 #define TFT_SC1_TXT3_TXT_FONT   TFT_SC1_TXT1_TXT_FONT
 #define TFT_SC1_TXT3_TXT_X      TFT_SC1_TXT1_TXT_X
-#define TFT_SC1_TXT3_TXT_Y      141
+#define TFT_SC1_TXT3_TXT_Y      171
 
 
 #endif
