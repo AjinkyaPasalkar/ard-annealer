@@ -145,13 +145,13 @@ void sc3_add_case(void)
       SC1_STATE.max_cases += 1;
 
       // Write sec, msec
-      EEPROM[i * 23 + 1] = SC4_STATE.sec;
-      EEPROM[i * 23 + 2] = SC4_STATE.msec;
+      EEPROM[i * 23 + 1] = SC3_STATE.sec;
+      EEPROM[i * 23 + 2] = SC3_STATE.msec;
 
       // Write case name
       for (int i = 0; i < 14; i++)
       {
-        EEPROM[i * 23 + 3 + i] = SC4_STATE.casename[i];
+        EEPROM[i * 23 + 3 + i] = SC3_STATE.casename[i];
       }
       EEPROM[i * 23 + 3 + 14] = 0;
       break;

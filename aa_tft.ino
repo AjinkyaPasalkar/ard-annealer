@@ -125,6 +125,8 @@ void tft_draw_sc1(void)
 
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC1_BTN4_ARROW_X, TFT_SC1_BTN4_ARROW_Y, TFT_SC1_BTN4_ARROW_CLR, TFT_SC1_BTN4_ARROW_DIR);
+
+  sc1_draw_list();
 }
 
 void tft_draw_sc2(void)
@@ -284,6 +286,9 @@ void tft_draw_sc2(void)
   textParams.text_color       = TFT_SC2_BTN7_TXT_CLR;
   textParams.rect_color       = TFT_SC2_BTN7_RECT_CLR;
   tft_draw_text(textParams);
+
+  sc2_draw_time();
+  sc2_draw_count();
 }
 
 /*!
@@ -473,6 +478,8 @@ void tft_draw_sc3(void)
 
   tft_draw_text(textParams);
   tft_draw_arrow_button(TFT_SC3_BTN9_ARROW_X, TFT_SC3_BTN9_ARROW_Y, TFT_SC3_BTN9_ARROW_CLR, TFT_SC3_BTN9_ARROW_DIR);
+
+  sc3_update_time();
 }
 
 /*!
