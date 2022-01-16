@@ -143,6 +143,7 @@ void sc3_add_case(void)
       // Write case ID
       EEPROM[i * 23] = SC1_STATE.max_cases;
       SC1_STATE.max_cases += 1;
+      EEPROM[SC1_MAX_CASES_ADDR] = SC1_STATE.max_cases;
 
       // Write sec, msec
       EEPROM[i * 23 + 1] = SC3_STATE.sec;
@@ -379,6 +380,8 @@ void sc8_delete_case(int8_t case_id)
     {
       // Erase case ID
       EEPROM.update(i * 23, 0xff);
+      SC1_STATE.max_cases -= 1;
+      EEPROM[SC1_MAX_CASES_ADDR] = SC1_STATE.max_cases;
     }
     else if (eeprom_id > case_id && eeprom_id < 20)
     {

@@ -1,3 +1,5 @@
+#define SC1_MAX_CASES_ADDR 1000
+
 /*!
     @brief    Initialise TFT LCD
 */
@@ -6,6 +8,8 @@ void tft_init(void)
   tft.begin();
   tft.setRotation(1);
   tft.fillScreen(ILI9341_BLACK);
+
+  SC1_STATE.max_cases = EEPROM[SC1_MAX_CASES_ADDR];
 }
 
 /*!
