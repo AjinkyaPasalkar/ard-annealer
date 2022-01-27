@@ -472,3 +472,12 @@ void task_motor(void)
     tft_draw_sc7();
   }
 }
+
+void task_ir(void)
+{
+  if (MACHINE_STATE.motor == true && ir_detect() == true)
+  {
+    MACHINE_STATE.motor = false;
+    MACHINE_STATE.ssr = true;
+  }
+}

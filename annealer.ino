@@ -18,9 +18,12 @@ Servo Servo1;
 #define TASK_OFST_TOUCH 0
 #define TASK_INTV_MOTOR 10
 #define TASK_OFST_MOTOR 1
+#define TASK_INTV_IR 10
+#define TASK_OFST_IR 2
 unsigned long currMillis = 0;
 unsigned long prevMillis_TOUCH = 0;
 unsigned long prevMillis_MOTOR = 0;
+unsigned long prevMillis_IR = 0;
 struct
 {
   uint8_t   screen_id;      /*!< Current screen being displayed */
@@ -91,6 +94,12 @@ void loop()
   {
     prevMillis_MOTOR = currMillis;
     task_motor();
+  }
+
+  if ((currMillis - prevMillis_IR - TASK_OFST_IR) >= TASK_INTV_IR)
+  {
+    prevMillis_IR = currMillis;
+    task_ir();
   }
 
 }
