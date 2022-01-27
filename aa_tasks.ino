@@ -443,3 +443,32 @@ void task_touch(void)
     }
   }
 }
+
+void task_motor(void)
+{
+  static bool prev_state = false;
+  static uint32_t motor_start_time;
+
+  ed_enable(MACHINE_STATE.motor);
+
+  if (prev_state == false && MACHINE_STATE.motor == true)
+  {
+    prev_state = true;
+    motor_start_time = currMillis;
+  }
+  else if (prev_state == true && MACHINE_STATE.motor == false)
+  {
+    prev_state = false;
+  }
+
+  if ((currMillis > motor_start_time + 60000) && MACHINE_STATE.motor == true)
+  {
+    // Turn off motor, stop annealing and display error screen
+    MACHINE_STATE.ann_state = 0;
+    MACHINE_STATE.motor == false;
+
+    MACHINE_STATE.prev_screen_id = 4;
+    MACHINE_STATE.screen_id = 7;
+    tft_draw_sc7();
+  }
+}

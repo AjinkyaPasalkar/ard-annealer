@@ -16,8 +16,11 @@ Servo Servo1;
 // Schedular Setup
 #define TASK_INTV_TOUCH 10
 #define TASK_OFST_TOUCH 0
+#define TASK_INTV_MOTOR 10
+#define TASK_OFST_MOTOR 1
 unsigned long currMillis = 0;
 unsigned long prevMillis_TOUCH = 0;
+unsigned long prevMillis_MOTOR = 0;
 struct
 {
   uint8_t   screen_id;      /*!< Current screen being displayed */
@@ -82,6 +85,12 @@ void loop()
   {
     prevMillis_TOUCH = currMillis;
     task_touch();
+  }
+
+  if ((currMillis - prevMillis_MOTOR - TASK_OFST_MOTOR) >= TASK_INTV_MOTOR)
+  {
+    prevMillis_MOTOR = currMillis;
+    task_motor();
   }
 
 }
