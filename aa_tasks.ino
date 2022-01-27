@@ -481,3 +481,30 @@ void task_ir(void)
     MACHINE_STATE.ssr = true;
   }
 }
+
+void task_ssr(void)
+{
+  static bool prev_state = false;
+  static uint32_t ssr_start_time;
+
+  ssr_set(MACHINE_STATE.ssr);
+
+  if (prev_state == false && MACHINE_STATE.ssr == true)
+  {
+    prev_state = true;
+    ssr_start_time = currMillis;
+  }
+  else if (prev_state == true && MACHINE_STATE.ssr == false)
+  {
+    prev_state = false;
+  }
+
+  if ((currMillis > ssr_start_time + 10000) && MACHINE_STATE.ssr == true)
+  {
+    if (currMillis > (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec))
+    {
+      MACHINE_STATE.ssr = false;
+      MACHINE_STATE.servo = true;
+    }
+  }
+}
