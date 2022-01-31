@@ -276,6 +276,11 @@ void sc4_update_time(void)
   SC4_STATE.save_enabled = true;
 }
 
+void sc4_draw_count(void)
+{
+
+}
+
 void sc5_clear_textbox(void)
 {
   strcpy(SC5_STATE.textbox, "");

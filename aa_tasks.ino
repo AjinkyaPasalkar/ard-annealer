@@ -508,3 +508,35 @@ void task_ssr(void)
     }
   }
 }
+
+void task_servo(void)
+{
+  static bool prev_state = false;
+  static uint32_t servo_start_time;
+
+  servo_set_angle(MACHINE_STATE.servo * 90);
+
+  if (prev_state == false && MACHINE_STATE.servo == true)
+  {
+    prev_state = true;
+    servo_start_time = currMillis;
+  }
+  else if (prev_state == true && MACHINE_STATE.servo == false)
+  {
+    if (currMillis > servo_start_time + 10000)
+    {
+      if (currMillis > (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec))
+      {
+        MACHINE_STATE.count += 1;
+        sc4_draw_count();
+        prev_state = false;
+        MACHINE_STATE.motor == true;
+      }
+    }
+  }
+
+  if ((currMillis > servo_start_time + 500) && MACHINE_STATE.servo == true)
+  {
+    MACHINE_STATE.servo = false;
+  }
+}
