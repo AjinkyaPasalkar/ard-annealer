@@ -7,6 +7,7 @@ void task_touch(void)
     return;
   }
 
+  // Handle Touch on screen 1. Case selection screen
   if (MACHINE_STATE.screen_id == 1)
   {
     if ((p.x > TFT_SC1_BTN1_RECT_X) && (p.x < TFT_SC1_BTN1_RECT_X + TFT_SC1_BTN1_RECT_XLEN) &&
@@ -60,6 +61,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 2. Case count selection screen
   else if (MACHINE_STATE.screen_id == 2)
   {
     if ((p.x > TFT_SC2_BTN1_RECT_X) && (p.x < TFT_SC2_BTN1_RECT_X + TFT_SC2_BTN1_RECT_XLEN) &&
@@ -143,6 +145,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 3. Add new case
   else if (MACHINE_STATE.screen_id == 3)
   {
     if ((p.x > TFT_SC3_BTN1_RECT_X) && (p.x < TFT_SC3_BTN1_RECT_X + TFT_SC3_BTN1_RECT_XLEN) &&
@@ -235,6 +238,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 4. Annealing in progress screen
   else if (MACHINE_STATE.screen_id == 4)
   {
     if ((p.x > TFT_SC4_BTN1_RECT_X) && (p.x < TFT_SC4_BTN1_RECT_X + TFT_SC4_BTN1_RECT_XLEN) &&
@@ -316,6 +320,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 5. Keyboard screen
   else if (MACHINE_STATE.screen_id == 5)
   {
     if ((p.x > TFT_SCKEY_BTN5_RECT_X) && (p.x < TFT_SCKEY_BTN5_RECT_X + TFT_SCKEY_BTN5_RECT_XLEN) &&
@@ -360,6 +365,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 6. Annealing finished screen
   else if (MACHINE_STATE.screen_id == 6)
   {
     if ((p.x > TFT_SC6_BTN1_RECT_X) && (p.x < TFT_SC6_BTN1_RECT_X + TFT_SC6_BTN1_RECT_XLEN) &&
@@ -382,6 +388,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 7. Error screen
   else if (MACHINE_STATE.screen_id == 7)
   {
     if ((p.x > TFT_SC7_BTN1_RECT_X) && (p.x < TFT_SC7_BTN1_RECT_X + TFT_SC7_BTN1_RECT_XLEN) &&
@@ -404,6 +411,7 @@ void task_touch(void)
     }
   }
 
+  // Handle Touch on screen 8. Confirmation screen
   else if (MACHINE_STATE.screen_id == 8)
   {
     if ((p.x > TFT_SC8_BTN1_RECT_X) && (p.x < TFT_SC8_BTN1_RECT_X + TFT_SC8_BTN1_RECT_XLEN) &&
@@ -449,18 +457,25 @@ void task_motor(void)
   static bool prev_state = false;
   static uint32_t motor_start_time;
 
+  // Motor will be ON if MACHINE_STATE.motor is true
+  // Motor will be OFF if MACHINE_STATE.motor is false
   ed_enable(MACHINE_STATE.motor);
 
+  // If motor state is changing from OFF to ON
   if (prev_state == false && MACHINE_STATE.motor == true)
   {
+    // Update previous state and store current time
     prev_state = true;
     motor_start_time = currMillis;
   }
+  // Else if motor state is changing from ON to OFF
   else if (prev_state == true && MACHINE_STATE.motor == false)
   {
+    // Update previous step
     prev_state = false;
   }
 
+  // If 60 seconds have passed but still IR has not detected a case
   if ((currMillis > motor_start_time + 60000) && MACHINE_STATE.motor == true)
   {
     // Turn off motor, stop annealing and display error screen
@@ -475,8 +490,10 @@ void task_motor(void)
 
 void task_ir(void)
 {
+  // If motor is ON and IR detects a case
   if (MACHINE_STATE.motor == true && ir_detect() == true)
   {
+    // Turn OFF motor and Turn ON relay
     MACHINE_STATE.motor = false;
     MACHINE_STATE.ssr = true;
   }
@@ -487,20 +504,28 @@ void task_ssr(void)
   static bool prev_state = false;
   static uint32_t ssr_start_time;
 
+  // Relay will be ON if MACHINE_STATE.ssr is true
+  // Relay will be OFF if MACHINE_STATE.ssr is false
   ssr_set(MACHINE_STATE.ssr);
 
+  // If relay state is changing from OFF to ON
   if (prev_state == false && MACHINE_STATE.ssr == true)
   {
+    // Update previous state and store current time
     prev_state = true;
     ssr_start_time = currMillis;
   }
+  // Else if relay state is changing from ON to OFF
   else if (prev_state == true && MACHINE_STATE.ssr == false)
   {
+    // Update previous step
     prev_state = false;
   }
 
+  // Wait for time set for the case
   if (currMillis > (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec) && MACHINE_STATE.ssr == true)
   {
+    // Turn OFF relay and turn ON servo
     MACHINE_STATE.ssr = false;
     MACHINE_STATE.servo = true;
   }
@@ -511,19 +536,26 @@ void task_servo(void)
   static bool prev_state = false;
   static uint32_t servo_start_time;
 
+  // Servo will be 90 degree if MACHINE_STATE.servo is true
+  // Servo will be 0 degree if MACHINE_STATE.servo is false
   servo_set_angle(MACHINE_STATE.servo * 90);
 
+  // If servo state is changing from OFF to ON
   if (prev_state == false && MACHINE_STATE.servo == true)
   {
+    // Update previous state and store current time
     prev_state = true;
     servo_start_time = currMillis;
   }
+  // Else if servo state is changing from ON to OFF
   else if (prev_state == true && MACHINE_STATE.servo == false)
   {
+    // Wait for at least 10 sec or twice the time for the case
     if (currMillis > servo_start_time + 10000)
     {
       if (currMillis > 2 * (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec))
       {
+        // Increase count, update previous state and start motor
         MACHINE_STATE.count += 1;
         sc4_draw_count();
         prev_state = false;
@@ -532,6 +564,7 @@ void task_servo(void)
     }
   }
 
+  // Turn OFF servo after 0.5 seconds
   if ((currMillis > servo_start_time + 500) && MACHINE_STATE.servo == true)
   {
     MACHINE_STATE.servo = false;

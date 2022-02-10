@@ -82,7 +82,7 @@ void tft_draw_text(SCREEN_TEXT_Params params)
     tft_draw_thick_rect(params.rect_x, params.rect_y, params.rect_x_len, params.rect_y_len, params.rect_color, params.rect_thickness);
   }
 
-
+  // Draw text
   tft.setFont(params.text_font);
   tft.setTextSize(params.text_size);
   tft.setTextColor(params.text_color);
@@ -95,22 +95,22 @@ void tft_draw_arrow_button(uint16_t x, uint16_t y, uint16_t color, uint16_t dir)
   uint16_t x1, x2, x3, y1, y2, y3;
   switch (dir)
   {
-    case 0:
+    case 0: // UP arrow
       x1 = x - 10;  y1 = y + 8;
       x2 = x;       y2 = y - 8;
       x3 = x + 10;  y3 = y + 8;
       break;
-    case 1:
+    case 1: // Down arrow
       x1 = x - 10;  y1 = y - 8;
       x2 = x;       y2 = y + 8;
       x3 = x + 10;  y3 = y - 8;
       break;
-    case 2:
+    case 2: // RIGHT arrow
       x1 = x - 8;   y1 = y - 10;
       x2 = x + 8;   y2 = y;
       x3 = x - 8;   y3 = y + 10;
       break;
-    case 3:
+    case 3: // LEFT arrow
       x1 = x + 8;   y1 = y - 10;
       x2 = x - 8;   y2 = y;
       x3 = x + 8;   y3 = y + 10;
