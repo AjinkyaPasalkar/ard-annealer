@@ -499,13 +499,10 @@ void task_ssr(void)
     prev_state = false;
   }
 
-  if ((currMillis > ssr_start_time + 10000) && MACHINE_STATE.ssr == true)
+  if (currMillis > (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec) && MACHINE_STATE.ssr == true)
   {
-    if (currMillis > (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec))
-    {
-      MACHINE_STATE.ssr = false;
-      MACHINE_STATE.servo = true;
-    }
+    MACHINE_STATE.ssr = false;
+    MACHINE_STATE.servo = true;
   }
 }
 
@@ -525,7 +522,7 @@ void task_servo(void)
   {
     if (currMillis > servo_start_time + 10000)
     {
-      if (currMillis > (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec))
+      if (currMillis > 2 * (MACHINE_STATE.case_time_sec * 1000 + MACHINE_STATE.case_time_msec))
       {
         MACHINE_STATE.count += 1;
         sc4_draw_count();
